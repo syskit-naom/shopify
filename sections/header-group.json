@@ -1,1 +1,52 @@
-{"name":"t:sections.header.name","type":"header","sections":{"header":{"type":"header","settings":{"logo_position":"middle-left","menu":"main-menu","menu_type_desktop":"mega","sticky_header_type":"on-scroll-up","show_line_separator":false,"color_scheme":"scheme-1","menu_color_scheme":"scheme-1","enable_country_selector":true,"enable_language_selector":true,"mobile_logo_position":"center","margin_bottom":0,"padding_top":36,"padding_bottom":12}}},"order":["header"]}
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": false,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "announcement_bar_f6NjEP": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_cLxCwK": {
+          "type": "announcement",
+          "settings": {
+            "text": "a black bar",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_cLxCwK"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    }
+  },
+  "order": [
+    "header",
+    "announcement_bar_f6NjEP"
+  ]
+}
