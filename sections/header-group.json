@@ -19,34 +19,9 @@
         "padding_top": 36,
         "padding_bottom": 12
       }
-    },
-    "announcement_bar_f6NjEP": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement_cLxCwK": {
-          "type": "announcement",
-          "settings": {
-            "text": "a black bar",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement_cLxCwK"
-      ],
-      "settings": {
-        "color_scheme": "",
-        "show_line_separator": true,
-        "show_social": false,
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "enable_country_selector": false,
-        "enable_language_selector": false
-      }
     }
   },
   "order": [
-    "header",
-    "announcement_bar_f6NjEP"
+    "header"
   ]
 }
