@@ -38,6 +38,31 @@ if (!customElements.get('localization-form')) {
         this.querySelectorAll('a').forEach((item) => item.addEventListener('click', this.onItemClick.bind(this)));
       }
 
+      areCookiesEnabled() {
+        const testKey = 'test-cookie';
+        const testValue = 'test';
+        // Attempt to set a cookie with Secure; SameSite=Lax attributes
+        document.cookie = `${testKey}=${testValue};path=/;SameSite=Lax;Secure`;
+    
+        const areEnabled = document.cookie.indexOf(`${testKey}=${testValue}`) !== -1;
+    
+        // Clean up test cookie
+        if (areEnabled) {
+          document.cookie = `${testKey}=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/;SameSite=Lax;Secure`;
+        }
+    
+        return areEnabled;
+      }
+
+      setLanguageCookie(lang) {
+        const now = new Date();
+        now.setTime(now.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 days
+        const isSecureContext = window.location.protocol === 'https:';
+        const secureAttribute = isSecureContext ? ';Secure' : '';
+        const cookieAttributes = `;expires=${now.toUTCString()};path=/;SameSite=Lax${secureAttribute}`;
+        document.cookie = `${storageKey}=${lang}${cookieAttributes}`;
+      }
+
       hidePanel() {
         this.elements.button.setAttribute('aria-expanded', 'false');
         this.elements.panel.setAttribute('hidden', true);
@@ -105,8 +130,15 @@ if (!customElements.get('localization-form')) {
       onItemClick(event) {
         event.preventDefault();
         const form = this.querySelector('form');
-        this.elements.input.value = event.currentTarget.dataset.value;
-        if (form) form.submit();
+        const lang = event.currentTarget.dataset.value;
+        this.elements.input.value = lang
+        if (form) {
+          if(this.areCookiesEnabled()) {
+            console.log('setting cookie to', lang)
+            this.setLanguageCookie(lang);
+          }
+          form.submit();
+        }
       }
 
       openSelector() {

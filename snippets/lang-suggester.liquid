@@ -1,0 +1,140 @@
+<div
+  id="lang-suggester"
+  class="fixed bottom-0 right-0 w-screen [@media(min-width:400px)]:w-fit hidden bg-black text-white [@media(min-width:400px)]:rounded-[20px_0_0_20px] p-[10px] pr-[20px] justify-end z-10"
+>
+  <a class="block underline p-[20px]">Looking for the <span></span> version?</a>
+  <button class="underline px-[20px]">
+    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_144_2)">
+      <path d="M0.864964 15.9779C0.773885 16.0722 0.723488 16.1985 0.724627 16.3296C0.725766 16.4607 0.77835 16.5861 0.871054 16.6788C0.963759 16.7715 1.08916 16.8241 1.22026 16.8252C1.35136 16.8264 1.47766 16.776 1.57196 16.6849L9.00496 9.25391L16.584 16.5359C16.6554 16.6038 16.7453 16.6491 16.8424 16.6661C16.9395 16.6832 17.0395 16.6712 17.1298 16.6317C17.2201 16.5922 17.2967 16.5269 17.3501 16.4441C17.4035 16.3612 17.4313 16.2645 17.43 16.1659C17.4288 16.1002 17.4146 16.0354 17.3884 15.9752C17.3621 15.915 17.3243 15.8605 17.277 15.8149L9.71196 8.54591L17.129 1.12991C17.1755 1.08349 17.2123 1.02837 17.2375 0.967688C17.2627 0.907009 17.2757 0.841964 17.2757 0.776267C17.2758 0.710569 17.2629 0.645506 17.2378 0.584791C17.2127 0.524077 17.1759 0.468901 17.1295 0.422413C17.083 0.375925 17.0279 0.339036 16.9672 0.313852C16.9066 0.288667 16.8415 0.275681 16.7758 0.275635C16.7101 0.275588 16.6451 0.288483 16.5843 0.313581C16.5236 0.338679 16.4685 0.375491 16.422 0.421913L8.99096 7.85291L1.41296 0.572913C1.36629 0.524558 1.31034 0.48611 1.24847 0.459865C1.1866 0.433621 1.12007 0.42012 1.05286 0.420169C0.985653 0.420217 0.919144 0.433815 0.85731 0.460148C0.795476 0.486482 0.739586 0.525012 0.692979 0.573434C0.646373 0.621857 0.610006 0.679178 0.586054 0.741973C0.562102 0.804768 0.551055 0.871747 0.553574 0.938908C0.556093 1.00607 0.572126 1.07203 0.600715 1.13286C0.629303 1.19368 0.669861 1.24812 0.719964 1.29291L8.28296 8.56091L0.864964 15.9779Z" fill="white"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_144_2">
+      <rect width="18" height="17" fill="white"/>
+      </clipPath>
+      </defs>
+    </svg>
+  </button>
+</div>
+
+<script>
+  let scrollHandledCount = 0
+  const navigatorLang = (navigator.language || navigator.navigatorLanguage).substring(0, 2);
+  const storageKey = 'naom-shop_preferred-lang';
+  const userStoredPreferredLang = getLanguageFromCookie();
+  const langPathPart = window.location.pathname.split('/').filter(Boolean)[0];
+  const websiteLang = langPathPart === 'en' ? 'en' : 'sv';
+  const englishVersionURL = window.location.host + '/en';
+  const swedishVersionURL = window.location.host;
+  const preferredMismatch = userStoredPreferredLang && userStoredPreferredLang !== websiteLang;
+  const navigatorMismatch = websiteLang !== navigatorLang;
+  const shouldRedirectLang = preferredMismatch
+    ? userStoredPreferredLang
+    : !userStoredPreferredLang && navigatorMismatch
+    ? navigatorLang
+    : null;
+
+  {% comment %} console.log('navigatorLang', navigatorLang);
+  console.log('storageKey', storageKey);
+  console.log('userStoredPreferredLang', userStoredPreferredLang);
+  console.log('langPathPart', langPathPart);
+  console.log('websiteLang', websiteLang);
+  console.log('englishVersionURL', englishVersionURL);
+  console.log('swedishVersionURL', swedishVersionURL);
+  console.log('preferredMismatch', preferredMismatch);
+  console.log('navigatorMismatch', navigatorMismatch);
+  console.log('shouldRedirectLang', shouldRedirectLang); {% endcomment %}
+
+  if (shouldRedirectLang && areCookiesEnabled()) {
+    const container = document.querySelector('#lang-suggester');
+    const closeBtn = container.querySelector('button');
+    const link = container.querySelector('a');
+    const linkSpan = container.querySelector('a span');
+    const langAlias = shouldRedirectLang === 'sv' ? 'Swedish' : 'English';
+    const url = constructNewUrl(shouldRedirectLang);
+    {% comment %} console.log('URL TO REDIRECT TO', url); {% endcomment %}
+
+    linkSpan.innerText = langAlias;
+    link.href = url;
+    container.classList.replace('hidden', 'flex');
+
+    function constructNewUrl(targetLang) {
+      const baseUrl = window.location.origin;
+      let path = window.location.pathname;
+
+      // Ensure the path starts correctly based on target language
+      if (targetLang === 'sv' && path.startsWith('/en')) {
+        // Switching to Swedish: Remove '/en'
+        path = path.substring(3); // Remove '/en' from the start
+      } else if (targetLang === 'en' && !path.startsWith('/en')) {
+        // Switching to English: Ensure the path starts with '/en'
+        path = `/en${path}`;
+      }
+
+      const search = window.location.search; // Retains query parameters
+      const hash = window.location.hash; // Retains hash fragment
+      return `${baseUrl}${path}${search}${hash}`;
+    }
+
+    function setLanguageCookie(lang) {
+      const now = new Date();
+      now.setTime(now.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 days
+      const isSecureContext = window.location.protocol === 'https:';
+      const secureAttribute = isSecureContext ? ';Secure' : '';
+      const cookieAttributes = `;expires=${now.toUTCString()};path=/;SameSite=Lax${secureAttribute}`;
+      document.cookie = `${storageKey}=${lang}${cookieAttributes}`;
+    }
+
+    function onClose() {
+      setLanguageCookie(websiteLang);
+      closeBtn.removeEventListener('click', onClose);
+      container.remove();
+    }
+
+    function onNavigate() {
+      setLanguageCookie(shouldRedirectLang);
+    }
+
+    closeBtn.addEventListener('click', onClose);
+    link.addEventListener('click', onNavigate);
+
+    window.addEventListener('scroll', onScroll)
+
+    function onScroll() {
+      // is triggered before actually scrolling if page renders scrolled down 
+      // therefore we check won't take action the first time
+      scrollHandledCount++
+      if(scrollHandledCount > 1) { 
+        window.removeEventListener('scroll', onScroll)
+        let timeout = setTimeout(function() {
+          const container = document.querySelector('#lang-suggester');
+          container.remove();
+        }, 1000)
+      }
+    }
+  }
+
+  function getLanguageFromCookie() {
+    const cookieValue = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith(storageKey + '='))
+      ?.split('=')[1];
+    return cookieValue;
+  }
+
+  function areCookiesEnabled() {
+    const testKey = 'test-cookie';
+    const testValue = 'test';
+    // Attempt to set a cookie with Secure; SameSite=Lax attributes
+    document.cookie = `${testKey}=${testValue};path=/;SameSite=Lax;Secure`;
+
+    const areEnabled = document.cookie.indexOf(`${testKey}=${testValue}`) !== -1;
+
+    // Clean up test cookie
+    if (areEnabled) {
+      document.cookie = `${testKey}=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/;SameSite=Lax;Secure`;
+    }
+
+    return areEnabled;
+  }
+</script>
