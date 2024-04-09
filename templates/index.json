@@ -1,5 +1,36 @@
 {
   "sections": {
+    "rich_text_TKUaT9": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nfrwqE": {
+          "type": "heading",
+          "settings": {
+            "heading": "WELCOME TO THE",
+            "heading_size": "h1"
+          }
+        },
+        "heading_7cLbj4": {
+          "type": "heading",
+          "settings": {
+            "heading": "NAOM SHOP",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nfrwqE",
+        "heading_7cLbj4"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -30,6 +61,7 @@
     }
   },
   "order": [
+    "rich_text_TKUaT9",
     "featured_collection"
   ]
 }
