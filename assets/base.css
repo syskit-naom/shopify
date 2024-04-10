@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Geograph";
+  src:url("./test-geograph-regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Schabo";
+  src:url("./SCHABO-Condensed.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -72,6 +88,12 @@
 }
 
 /* base */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Geograph";
+}
 
 .no-js:not(html) {
   display: none !important;
@@ -275,7 +297,7 @@ h5,
 .h3,
 .h4,
 .h5 {
-  font-family: var(--font-heading-family);
+  text-transform: uppercase;
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
