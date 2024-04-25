@@ -6,14 +6,14 @@
         "heading_nfrwqE": {
           "type": "heading",
           "settings": {
-            "heading": "WELCOME TO THE",
+            "heading": "Welcome to the",
             "heading_size": "h1"
           }
         },
         "heading_7cLbj4": {
           "type": "heading",
           "settings": {
-            "heading": "NAOM SHOP",
+            "heading": "Naom Shop",
             "heading_size": "h1"
           }
         }
@@ -39,7 +39,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "wearables",
+        "collection": "latest-products",
         "products_to_show": 24,
         "columns_desktop": 4,
         "full_width": false,
@@ -47,14 +47,14 @@
         "view_all_style": "outline",
         "enable_desktop_slider": false,
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "enable_quick_add": false,
         "columns_mobile": "1",
-        "swipe_on_mobile": true,
+        "swipe_on_mobile": false,
         "padding_top": 0,
         "padding_bottom": 36
       }
