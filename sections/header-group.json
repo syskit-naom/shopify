@@ -5,7 +5,6 @@
     "header": {
       "type": "header",
       "settings": {
-        "logo_position": "middle-left",
         "menu": "main-menu",
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",

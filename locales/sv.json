@@ -60,7 +60,10 @@
   "newsletter": {
     "label": "E-post",
     "success": "Tack för att du prenumererar",
-    "button_label": "Prenumerera"
+    "button_label": "Prenumerera",
+    "signup_form": {
+      "heading": "Prenumerera på vårt nyhetsbrev"
+    }
   },
   "accessibility": {
     "skip_to_text": "Gå vidare till innehåll",
