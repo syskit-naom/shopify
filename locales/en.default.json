@@ -321,6 +321,8 @@
       "view_all_label": "View all products in the {{ collection_name }} collection"
     },
     "collection_list": {
+      "heading": "Collections",
+      "all_collections_heading": "All collections",
       "view_all": "View all"
     },
     "collection_template": {

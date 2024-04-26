@@ -58,10 +58,58 @@
         "padding_top": 0,
         "padding_bottom": 36
       }
+    },
+    "collection_list_axraan": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_xUd3rH": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "wearables"
+          }
+        },
+        "featured_collection_NXykck": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "popular-products"
+          }
+        },
+        "featured_collection_Lc8jKD": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "trycksaker"
+          }
+        },
+        "featured_collection_bG8xnH": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "not-ordinary"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_xUd3rH",
+        "featured_collection_NXykck",
+        "featured_collection_Lc8jKD",
+        "featured_collection_bG8xnH"
+      ],
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "rich_text_TKUaT9",
-    "featured_collection"
+    "featured_collection",
+    "collection_list_axraan"
   ]
 }
