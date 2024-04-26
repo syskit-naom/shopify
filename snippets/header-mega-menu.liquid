@@ -6,9 +6,9 @@
 {% endcomment %}
 
 <nav class="header__inline-menu">
-  <ul class="list-menu list-menu--inline" role="list">
+  <ul class="flex" role="list">
     {%- for link in section.settings.menu.links -%}
-      <li>
+      <li class="flex items-center">
         {%- if link.links != blank -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
@@ -87,6 +87,10 @@
               {{- link.title | escape -}}
             </span>
           </a>
+        {%- endif -%}
+
+        {%- if forloop.last == false -%}
+          <span>☆</span>
         {%- endif -%}
       </li>
     {%- endfor -%}
