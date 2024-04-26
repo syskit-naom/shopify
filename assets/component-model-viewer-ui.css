@@ -22,7 +22,7 @@
 }
 
 .shopify-model-viewer-ui .shopify-model-viewer-ui__button--poster {
-  border-radius: 50%;
+  border-radius: 0%;
   color: rgb(var(--color-foreground));
   background: rgb(var(--color-background));
   border-color: rgba(var(--color-foreground), 0.1);
