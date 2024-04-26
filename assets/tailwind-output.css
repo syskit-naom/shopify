@@ -701,6 +701,11 @@ video {
   padding: 20px;
 }
 
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -714,11 +719,6 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
 }
 
 .pb-24 {
@@ -747,10 +747,6 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.text-left {
-  text-align: left;
 }
 
 .uppercase {
@@ -790,6 +786,44 @@ video {
 
 .hidden-tw {
   display: none;
+}
+
+/* Fixed layout for the Header Search Module */
+
+.header__search > details[open='true'] {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+}
+
+.header__search > details[open='true'] > summary {
+  display: none;
+}
+
+.header__search > details > .search-modal {
+  position: relative;
+}
+
+.header__search > details .search-modal__content {
+  padding: 2rem;
+}
+
+.header__search > details .search-modal__content .search-modal__close-button {
+  position: relative;
+  left: 0px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 2.25rem;
+}
+
+.header__search > details .search-modal__form {
+  max-width: unset;
+}
+
+.header__search > details > .search-modal input[type="search"] {
+  border-style: none;
 }
 
 @media (min-width: 640px) {

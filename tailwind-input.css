@@ -6,4 +6,30 @@
   .hidden-tw {
     @apply hidden;
   }
+
+
+  /* Fixed layout for the Header Search Module */
+  .header__search > details[open='true'] {
+    @apply fixed top-0 left-0 z-10 w-screen;
+  }
+ 
+  .header__search > details[open='true'] > summary {
+    @apply hidden-tw;
+  }
+  
+  .header__search > details > .search-modal {
+    @apply relative;
+  }
+  .header__search > details .search-modal__content {
+    @apply p-8;
+  }
+  .header__search > details .search-modal__content .search-modal__close-button {
+    @apply relative left-0 pl-9 w-fit;
+  }
+  .header__search > details .search-modal__form {
+    @apply max-w-[unset];
+  }
+  .header__search > details > .search-modal input[type="search"] {
+    @apply border-none;
+  }
 }
