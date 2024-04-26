@@ -313,6 +313,8 @@
       "view_all_label": "Visa alla produkter i produktserien {{ collection_name }}"
     },
     "collection_list": {
+      "heading": "Kollektioner",
+      "all_collections_heading": "Alla kollektioner",
       "view_all": "Visa alla"
     },
     "collection_template": {

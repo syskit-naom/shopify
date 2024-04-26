@@ -32,7 +32,7 @@
           id="SectionHeading-{{ section.id }}"
           class="collection-list-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         >
-          {{ section.settings.title }}
+          {{ 'sections.collection_list.heading' | t }}
         </h2>
 
         {%- if section.settings.show_view_all and show_mobile_slider -%}

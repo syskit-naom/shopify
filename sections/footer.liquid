@@ -49,7 +49,7 @@
     or section.settings.enable_follow_on_shop
   -%}
     {%- unless only_empty_brand -%}
-      <div class="footer__content-top page-width">
+      <div class="px-0 footer__content-top page-width">
         {%- if section.blocks.size > 0 -%}
           {%- liquid
             if section.blocks.size == 9
@@ -166,7 +166,7 @@
           {% endif %}
         >
           {%- if section.settings.newsletter_enable -%}
-            <div class="footer-block__newsletter">
+            <div class="footer-block__newsletter page-width">
               <h2 class="footer-block__heading inline-richtext">
                 {{ 'newsletter.signup_form.heading' | t }}
               </h2>

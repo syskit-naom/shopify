@@ -615,7 +615,7 @@ details>* {
 
 :root {
   --duration-short: 100ms;
-  --duration-default: 200ms;
+  --duration-default: 400ms;
   --duration-announcement-bar: 250ms;
   --duration-medium: 300ms;
   --duration-long: 500ms;
@@ -2691,7 +2691,7 @@ details[open] .modal-overlay {
 details[open] .modal-overlay::after {
   position: absolute;
   content: '';
-  background-color: rgb(var(--color-foreground), 0.5);
+  background-color: rgb(var(--color-foreground), 0.3);
   top: 100%;
   left: 0;
   right: 0;
