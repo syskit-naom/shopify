@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./**/*.liquid"],
+  important: "#tw-wrapper",
   blocklist: [
     'grid', /* conflicting with grid class in base.css */
   ],
