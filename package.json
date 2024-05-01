@@ -5,12 +5,13 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "run-p tw theme-dev",
+    "dev": "run-p tw-watch theme-dev",
     "theme-dev": "shopify theme dev",
     "theme-check": "shopify theme check",
-    "theme-push": "tw && shopify theme push",
-    "theme-pull": "shopify theme pull && tw",
-    "tw": "npx tailwindcss -i ./tailwind-input.css -o ./assets/tailwind-output.css --watch",
+    "theme-push": "run-s tw && shopify theme push",
+    "theme-pull": "run-s shopify theme pull && tw",
+    "tw": "npx tailwindcss -i ./tailwind-input.css -o ./assets/tailwind-output.css",
+    "tw-watch": "npx tailwindcss -i ./tailwind-input.css -o ./assets/tailwind-output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
