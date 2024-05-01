@@ -766,10 +766,6 @@ body {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-#tw-wrapper :is(.grid-cols-1) {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
 #tw-wrapper :is(.grid-cols-3) {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -963,10 +959,6 @@ body {
   #tw-wrapper :is(.sm\:w-fit) {
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  #tw-wrapper :is(.sm\:grid-cols-4) {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   #tw-wrapper :is(.sm\:flex-nowrap) {
