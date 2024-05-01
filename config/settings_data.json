@@ -2,11 +2,9 @@
   "current": {
     "logo": "shopify://shop_images/NAOM.svg",
     "logo_width": 50,
-    "type_header_font": "inter_n4",
     "heading_scale": 100,
-    "type_body_font": "inter_n4",
     "body_scale": 100,
-    "page_width": 1600,
+    "page_width": 1440,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 16,
     "spacing_grid_vertical": 16,
@@ -253,9 +251,7 @@
           }
         }
       },
-      "type_header_font": "inter_n4",
       "heading_scale": 100,
-      "type_body_font": "inter_n4",
       "body_scale": 100,
       "page_width": 1200,
       "spacing_sections": 0,
