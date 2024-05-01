@@ -17,51 +17,39 @@ module.exports = {
     },
     fontSize: {
       xs: [
-        "0.625rem", // 10px (base 10px)
+        "0.625rem", // 10px
         {
           lineHeight: "120%",
           letterSpacing: "0.02em",
         },
       ],
       sm: [
-        "0.75rem", // 12px (base 10px)
-        {
-          lineHeight: "120%",
-        },
+        "0.75rem", // 12px
+        "120%",
       ],
       md: [
-        "0.875rem", // 14px (base 10px),
-        { lineHeight: "139%" },
+        "0.875rem", // 14px
+        "139%"
       ],
       base: [
-        "1rem", // 16px (base 10px)
-        {
-          lineHeight: "120%",
-        },
+        "1rem", // 16px
+        "120%",
       ],
       lg: [
-        "1.75rem", // 28px (base 10px)
-        {
-          lineHeight: "98%",
-        },
+        "1.75rem", // 28px
+        "105%"
       ],
       xl: [
-        "2.625rem", // 42px (base 10px)
-        {
-          lineHeight: "104%",
-        },
+        "2.625rem", // 42px
+        "104%",
       ],
       "2xl": [
-        "4.5rem", // 72px (base 10px)
-        {
-          lineHeight: ".89",
-        },
+        "4.5rem", // 72px
+        ".89",
       ],
       "3xl": [
-        "10.375rem", // 166px (base 10px)
-        {
-          lineHeight: ".89",
-        },
+        "10.375rem", // 166px
+        ".89",
       ],
     },
     colors: {

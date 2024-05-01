@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --white: 255 255 255;
-    --black: 1 1 1;
+    --almost-black: 1 1 1;
     --gray: 129 129 129;
     --gray-light: 200 200 200;
 
@@ -40,9 +40,7 @@
     @apply bg-primary-bg text-primary-copy;
   }
 
-  body { 
-    /* @apply text-base; */
-  }
+  
 
   
   
@@ -54,7 +52,7 @@
   .tw-hidden {
     @apply hidden;
   }
-  
+
   /* Fixed layout for the Header Search Module */
   .header__search > details[open='true'] {
     @apply fixed top-0 left-0 z-10 w-screen;
@@ -87,9 +85,17 @@
   .cart-count-bubble {
     @apply absolute lg:top-2 -top-7 -left-3 lg:left-2;
   }
+
+  .card__heading .icon-wrap {
+    @apply inline-block;
+  }
 }
 
 @layer utilities {
+  h1,h2,h3,h4,h5,h6,p,span,div,input,button,textarea,label,summary,section,article,aside,footer,header,nav,main,ul,ol,li,dl,dt,dd,blockquote,code,pre,table,th,td,form,fieldset,legend,figure,figcaption,hr {
+    @apply tracking-[-0.05rem];
+  }
+  
   h1 {
     @apply text-xl
   }
@@ -104,5 +110,28 @@
 
   .icon {
     @apply max-w-full max-h-full;
+  }
+
+  .price, .price-item {
+    @apply text-base tracking-tighter;
+  }
+
+
+  .price__regular .price-item::before,
+  .price__sale .price-item--sale::before {
+    content: '⊙';
+    @apply text-[1.25rem] -mt-[0.1rem] pr-[0.2rem];
+  }
+
+  .contains-card {
+    @apply gap-y-8;
+  }
+
+  .card__heading {
+    @apply text-lg;
+  }
+
+  .card__information {
+    @apply py-3;
   }
 }

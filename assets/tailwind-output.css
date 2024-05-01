@@ -446,7 +446,7 @@ video {
 
 :root {
   --white: 255 255 255;
-  --black: 1 1 1;
+  --almost-black: 1 1 1;
   --gray: 129 129 129;
   --gray-light: 200 200 200;
   --primary-copy: var(--black);
@@ -470,10 +470,6 @@ video {
     --tw-header-height: 3rem;
     /* 48px */
   }
-}
-
-body {
-  /* @apply text-base; */
 }
 
 .tw-grid {
@@ -542,6 +538,10 @@ body {
     top: 0.5rem;
     left: 0.5rem;
   }
+}
+
+.card__heading .icon-wrap {
+  display: inline-block;
 }
 
 *, ::before, ::after {
@@ -887,9 +887,20 @@ body {
   padding-top: 2rem;
 }
 
+#tw-wrapper :is(.text-base) {
+  font-size: 1rem;
+  line-height: 120%;
+}
+
 #tw-wrapper :is(.text-sm) {
   font-size: 0.75rem;
   line-height: 120%;
+}
+
+#tw-wrapper :is(.text-xs) {
+  font-size: 0.625rem;
+  line-height: 120%;
+  letter-spacing: 0.02em;
 }
 
 #tw-wrapper :is(.uppercase) {
@@ -926,6 +937,10 @@ body {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+#tw-wrapper  :is(h1),:is(#tw-wrapper :is(h2)),:is(#tw-wrapper :is(h3)),:is(#tw-wrapper :is(h4)),:is(#tw-wrapper :is(h5)),:is(#tw-wrapper :is(h6)),:is(#tw-wrapper :is(p)),:is(#tw-wrapper :is(span)),:is(#tw-wrapper :is(div)),:is(#tw-wrapper :is(input)),:is(#tw-wrapper :is(button)),:is(#tw-wrapper :is(textarea)),:is(#tw-wrapper :is(label)),:is(#tw-wrapper :is(summary)),:is(#tw-wrapper :is(section)),:is(#tw-wrapper :is(article)),:is(#tw-wrapper :is(aside)),:is(#tw-wrapper :is(footer)),:is(#tw-wrapper :is(header)),:is(#tw-wrapper :is(nav)),:is(#tw-wrapper :is(main)),:is(#tw-wrapper :is(ul)),:is(#tw-wrapper :is(ol)),:is(#tw-wrapper :is(li)),:is(#tw-wrapper :is(dl)),:is(#tw-wrapper :is(dt)),:is(#tw-wrapper :is(dd)),:is(#tw-wrapper :is(blockquote)),:is(#tw-wrapper :is(code)),:is(#tw-wrapper :is(pre)),:is(#tw-wrapper :is(table)),:is(#tw-wrapper :is(th)),:is(#tw-wrapper :is(td)),:is(#tw-wrapper :is(form)),:is(#tw-wrapper :is(fieldset)),:is(#tw-wrapper :is(legend)),:is(#tw-wrapper :is(figure)),:is(#tw-wrapper :is(figcaption)),:is(#tw-wrapper :is(hr)) {
+  letter-spacing: -0.05rem;
+}
+
 #tw-wrapper  :is(h1) {
   font-size: 2.625rem;
   line-height: 104%;
@@ -933,7 +948,7 @@ body {
 
 #tw-wrapper  :is(h2),:is( #tw-wrapper :is(h3)) {
   font-size: 1.75rem;
-  line-height: 98%;
+  line-height: 105%;
 }
 
 #tw-wrapper  :is(.page-width) {
@@ -953,6 +968,38 @@ body {
 #tw-wrapper  :is(.icon) {
   max-height: 100%;
   max-width: 100%;
+}
+
+#tw-wrapper  :is(.price),:is( #tw-wrapper :is(.price-item)) {
+  font-size: 1rem;
+  line-height: 120%;
+  letter-spacing: -0.05em;
+}
+
+#tw-wrapper :is(.price__regular .price-item)::before,
+  #tw-wrapper :is(.price__sale .price-item--sale)::before {
+  content: '⊙';
+}
+
+#tw-wrapper  :is(.price__regular .price-item)::before,:is(
+  #tw-wrapper :is(.price__sale .price-item--sale))::before {
+  margin-top: -0.1rem;
+  padding-right: 0.2rem;
+  font-size: 1.25rem;
+}
+
+#tw-wrapper  :is(.contains-card) {
+  row-gap: 2rem;
+}
+
+#tw-wrapper  :is(.card__heading) {
+  font-size: 1.75rem;
+  line-height: 105%;
+}
+
+#tw-wrapper  :is(.card__information) {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 @media (min-width: 640px) {
@@ -1010,6 +1057,10 @@ body {
   #tw-wrapper :is(.lg\:py-0) {
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+
+  #tw-wrapper :is(.lg\:pt-2) {
+    padding-top: 0.5rem;
   }
 }
 

@@ -384,6 +384,10 @@
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
       }
+
+      console.log('page info, locale:', '{{ request.locale.root_url }}');
+      console.log('page info, path:', '{{ request.path }}');
+      console.log('page info, page type:', '{{ request.page_type }}');
     </script>
 
     <link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}">
@@ -408,6 +412,11 @@
 
       <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
         {{ content_for_layout }}
+
+        {% assign path = request.path | split: '/' | last %}
+        {% if path == 'faq' %}
+          {% section 'faq' %}
+        {%- endif -%}
       </main>
 
       {% sections 'footer-group' %}

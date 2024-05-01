@@ -351,7 +351,7 @@
 
     <div class="pb-8 uppercase page-width">
       <div class="footer__copyright caption lg:flex lg:flex-wrap">
-        <small class="copyright__content"
+        <small class="text-xs lg:pt-2 copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}
           <span class="">All rights reserved,</span> {{ shop.name | link_to: routes.root_url }}
           {{ powered_by_link -}}
@@ -362,7 +362,7 @@
               {%- for policy in shop.policies -%}
                 {%- if policy != blank -%}
                   <li>
-                    <small class="pt-4 pb-8 copyright__content">
+                    <small class="pt-4 text-xs copyright__content">
                       <a href="{{ policy.url }}">
                         {%- if forloop.first == true -%}
                           <span class="px-2 tw-hidden lg:inline">–</span>

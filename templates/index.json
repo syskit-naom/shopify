@@ -3,24 +3,15 @@
     "rich_text_TKUaT9": {
       "type": "rich-text",
       "blocks": {
-        "heading_nfrwqE": {
-          "type": "heading",
+        "text_UBiXqE": {
+          "type": "text",
           "settings": {
-            "heading": "Welcome to the",
-            "heading_size": "h1"
-          }
-        },
-        "heading_7cLbj4": {
-          "type": "heading",
-          "settings": {
-            "heading": "Naom Shop",
-            "heading_size": "h1"
+            "text": "<h1>Welcome to the <br\/>Naom Shop<\/h1>"
           }
         }
       },
       "block_order": [
-        "heading_nfrwqE",
-        "heading_7cLbj4"
+        "text_UBiXqE"
       ],
       "settings": {
         "desktop_content_position": "left",
