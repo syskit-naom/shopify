@@ -149,7 +149,7 @@
 
 <sticky-header
   data-sticky-type="on-scroll-up"
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient header-wrapper--border-bottom"
+  class="header-wrapper color-{{ section.settings.color_scheme }} gradient header-wrapper--border-bottom flex items-end lg:items-center py-5 lg:py-0 min-h-[var(--tw-header-height)]"
 >
   {%- liquid
     assign social_links = false
@@ -164,18 +164,16 @@
     endif
   -%}
 
-  <header class="lg:flex lg:gap-x-12 grid-auto-flow grid-cols-[1fr,0%,1fr,1fr] page-width min-h-[48px] pt-14 lg:pt-0">
+  <header class="tw-grid grid-cols-3 lg:grid-cols-[1fr,50px,50px] w-full gap-x-4 items-center page-width">
     {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
       endif
     -%}
 
-    <div class="items-center flex-none w-0 lg:w-fit lg:flex lg:flex-1">
-      {%- liquid
-        render 'header-mega-menu'
-      %}
-    </div>
+    {%- liquid
+      render 'header-mega-menu'
+    %}
 
     <div class="flex items-center justify-center flex-1 lg:flex-none lg:order-2">
       {{
@@ -193,7 +191,7 @@
       }}
     </div>
 
-    <div class="relative flex items-center justify-end">
+    <div class="relative flex items-center justify-end gap-x-4">
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
@@ -223,7 +221,11 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+      <a
+        href="{{ routes.cart_url }}"
+        class="w-5 h-5 m-0 header__icon header__icon--cart link focus-inset"
+        id="cart-icon-bubble"
+      >
         {%- liquid
           if cart == empty
             render 'icon-cart-empty'

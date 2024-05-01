@@ -5,10 +5,13 @@
   {% render 'header-drawer' %}
 {% endcomment %}
 
-<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
+<header-drawer
+  class="m-0"
+  data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}"
+>
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
     <summary
-      class="header__icon header__icon--menu header__icon--summary link focus-inset"
+      class="relative w-4 h-4 header__icon header__icon--menu header__icon--summary link focus-inset"
       aria-label="{{ 'sections.header.menu' | t }}"
     >
       <span>
@@ -16,18 +19,21 @@
         {% render 'icon-close' %}
       </span>
     </summary>
-    <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
+    <div
+      id="menu-drawer"
+      class="max-w-screen-sm sm:w-fit gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}"
+    >
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- for link in section.settings.menu.links -%}
-                <li>
+                <li class="m-0">
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
                       <summary
                         id="HeaderDrawer-{{ link.handle }}"
-                        class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
+                        class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %} page-width"
                       >
                         {{ link.title | escape }}
                         {% render 'icon-arrow' %}
@@ -50,7 +56,7 @@
                                   <a
                                     id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                     href="{{ childlink.url }}"
-                                    class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                    class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %} page-width"
                                     {% if childlink.current %}
                                       aria-current="page"
                                     {% endif %}
@@ -58,7 +64,10 @@
                                     {{ childlink.title | escape }}
                                   </a>
                                 {%- else -%}
-                                  <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
+                                  <details
+                                    id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}"
+                                    class="page-width"
+                                  >
                                     <summary
                                       id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                       class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
@@ -111,7 +120,7 @@
                     <a
                       id="HeaderDrawer-{{ link.handle }}"
                       href="{{ link.url }}"
-                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+                      class="px-0 py-4 menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %} page-width"
                       {% if link.current %}
                         aria-current="page"
                       {% endif %}
@@ -123,7 +132,7 @@
               {%- endfor -%}
             </ul>
           </nav>
-          <div class="menu-drawer__utility-links">
+          <div class="menu-drawer__utility-links page-width">
             {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
