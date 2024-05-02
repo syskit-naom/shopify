@@ -100,7 +100,7 @@
   }
  
   .page-width {
-    @apply px-3 mx-0 lg:px-5;
+    @apply max-w-screen-xl px-3 mx-0 xl:mx-auto lg:px-5;
   }
 
   .icon {
@@ -117,8 +117,8 @@
     @apply text-[1.25rem] -mt-[0.1rem] pr-[0.2rem];
   }
 
-  .contains-card {
-    @apply gap-y-8;
+  .grid.contains-card {
+    @apply grid-cols-1 gap-y-8 tw-grid xs:grid-cols-2 lg:flex;
   }
 
   .card__heading {

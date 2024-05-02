@@ -7,9 +7,11 @@ module.exports = {
   ],
   theme: {
     screens: {
+      xs: "480px",
       sm: "640px",
       md: "750px",
       lg: "990px",
+      xl: "1440px",
     },
     fontFamily: {
       gotham: "var(--font-gotham), sans-serif",
