@@ -519,19 +519,6 @@ video {
   width: 100vw;
 }
 
-.cart-count-bubble {
-  position: absolute;
-  top: -1.75rem;
-  left: -0.75rem;
-}
-
-@media (min-width: 990px) {
-  .cart-count-bubble {
-    top: 0.5rem;
-    left: 0.5rem;
-  }
-}
-
 .card__heading .icon-wrap {
   display: inline-block;
 }
@@ -690,8 +677,16 @@ video {
   bottom: 0px;
 }
 
+#tw-wrapper :is(.left-2) {
+  left: 0.5rem;
+}
+
 #tw-wrapper :is(.right-0) {
   right: 0px;
+}
+
+#tw-wrapper :is(.top-3) {
+  top: 0.75rem;
 }
 
 #tw-wrapper :is(.isolate) {
