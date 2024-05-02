@@ -321,6 +321,25 @@
          --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
          --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
          --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
+
+
+        {% if request.page_type == 'product' %}
+          --page-pt: 0.875rem;
+        {% else %}
+          --page-pt: 3.5rem;
+        {% endif %}
+
+        --page-pt-lg: 6rem;
+
+        {% if request.page_type == 'product' %}
+          --h1-mb: 0;
+        {% elsif request.page_type == 'collection' %}
+          --h1-mb: 1rem;
+        {% elsif request.page_type == 'cart' %}
+          --h1-mb: 0;
+        {% else %}
+          --h1-mb: 6rem;
+        {% endif %}
        }
 
        *,
@@ -410,7 +429,12 @@
 
       {% sections 'header-group' %}
 
-      <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      <main
+        id="MainContent"
+        class="content-for-layout focus-none pt-[var(--page-pt)] lg:pt-[var(--page-pt-lg)] pb-80"
+        role="main"
+        tabindex="-1"
+      >
         {{ content_for_layout }}
       </main>
 

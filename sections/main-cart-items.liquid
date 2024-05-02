@@ -29,14 +29,14 @@
   <div class="page-width">
     <div class="title-wrapper-with-link">
       <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
+      <a href="{{ routes.all_products_collection_url }}" class="p-2 border border-black underlined-link">
         {{- 'general.continue_shopping' | t -}}
       </a>
     </div>
 
     <div class="cart__warnings">
       <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="button">
+      <a href="{{ routes.all_products_collection_url }}" class="p-2 border border-black button">
         {{ 'general.continue_shopping' | t }}
       </a>
 
@@ -79,15 +79,18 @@
 
               <tbody>
                 {%- for item in cart.items -%}
-                  <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
-                    <td class="cart-item__media">
+                  <tr
+                    class="cart-item gap-x-3 gap-y-0 grid-cols-[20%,1fr,1fr,1fr] sm:[grid-template:repeat(2,auto)_/_repeat(4,1fr)]"
+                    id="CartItem-{{ item.index | plus: 1 }}"
+                  >
+                    <td class="cart-item__media col-[1/1] row-[1/1] sm:row-[1/-1]">
                       {% if item.image %}
                         {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                         <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
                         <div class="cart-item__image-container gradient global-media-settings">
                           <img
                             src="{{ item.image | image_url: width: 300 }}"
-                            class="cart-item__image"
+                            class="w-full cart-item__image"
                             alt="{{ item.image.alt | escape }}"
                             loading="lazy"
                             width="150"
@@ -97,7 +100,7 @@
                       {% endif %}
                     </td>
 
-                    <td class="cart-item__details">
+                    <td class="pl-0 cart-item__details md:pl-2">
                       {%- if settings.show_vendor -%}
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
@@ -105,7 +108,7 @@
                       <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
 
                       {%- if item.original_price != item.final_price -%}
-                        <div class="cart-item__discounted-prices">
+                        <div class="text-sm cart-item__discounted-prices">
                           <span class="visually-hidden">
                             {{ 'products.product.price.regular_price' | t }}
                           </span>
@@ -115,12 +118,12 @@
                           <span class="visually-hidden">
                             {{ 'products.product.price.sale_price' | t }}
                           </span>
-                          <strong class="cart-item__final-price product-option">
+                          <strong class="cart-item__final-price product-option price">
                             {{ item.final_price | money }}
                           </strong>
                         </div>
                       {%- else -%}
-                        <div class="product-option">
+                        <div class="product-option price">
                           {{ item.original_price | money }}
                         </div>
                       {%- endif -%}
@@ -224,13 +227,13 @@
                         assign has_vol_pricing = true
                       endif
                     -%}
-                    <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}">
+                    <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %} h-fit xs:row-start-2 row-start-2 sm:col-[2/-1] col-[1/-1]">
                       <quantity-popover>
                         <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
                           <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
                             {{ 'products.product.quantity.label' | t }}
                           </label>
-                          <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
+                          <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %} pb-0">
                             {%- if has_qty_rules or has_vol_pricing -%}
                               <button
                                 type="button"
@@ -240,51 +243,70 @@
                                 {% render 'icon-info' %}
                               </button>
                             {%- endif -%}
-                            <quantity-input class="quantity cart-quantity">
-                              <button class="quantity__button no-js-hidden" name="minus" type="button">
-                                <span class="visually-hidden">
-                                  {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
-                                </span>
-                                {% render 'icon-minus' %}
-                              </button>
-                              <input
-                                class="quantity__input"
-                                data-quantity-variant-id="{{ item.variant.id }}"
-                                type="number"
-                                name="updates[]"
-                                value="{{ item.quantity }}"
-                                {% # theme-check-disable %}
-                                data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                                min="{{ item.variant.quantity_rule.min }}"
-                                {% if item.variant.quantity_rule.max != null %}
-                                  max="{{ item.variant.quantity_rule.max }}"
-                                {% endif %}
-                                step="{{ item.variant.quantity_rule.increment }}"
-                                {% # theme-check-enable %}
-                                aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                                id="Quantity-{{ item.index | plus: 1 }}"
-                                data-index="{{ item.index | plus: 1 }}"
-                              >
-                              <button class="quantity__button no-js-hidden" name="plus" type="button">
-                                <span class="visually-hidden">
-                                  {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
-                                </span>
-                                {% render 'icon-plus' %}
-                              </button>
-                            </quantity-input>
-                          </div>
-                          <cart-remove-button
-                            id="Remove-{{ item.index | plus: 1 }}"
-                            data-index="{{ item.index | plus: 1 }}"
-                          >
-                            <a
-                              href="{{ item.url_to_remove }}"
-                              class="button button--tertiary"
-                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+
+                            <div>
+                              <quantity-input class="flex quantity cart-quantity w-fit min-h-12 md:min-w-24 max-w-40">
+                                <button
+                                  class="quantity__button no-js-hidden w-[10%] sm:w-fit px-[10%] flex-1"
+                                  name="minus"
+                                  type="button"
+                                >
+                                  <span class="visually-hidden">
+                                    {{-
+                                      'products.product.quantity.decrease'
+                                      | t: product: item.product.title
+                                      | escape
+                                    -}}
+                                  </span>
+                                  {% render 'icon-minus' %}
+                                </button>
+                                <input
+                                  class="flex-1 px-0 quantity__input"
+                                  data-quantity-variant-id="{{ item.variant.id }}"
+                                  type="number"
+                                  name="updates[]"
+                                  value="{{ item.quantity }}"
+                                  {% # theme-check-disable %}
+                                  data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                                  min="{{ item.variant.quantity_rule.min }}"
+                                  {% if item.variant.quantity_rule.max != null %}
+                                    max="{{ item.variant.quantity_rule.max }}"
+                                  {% endif %}
+                                  step="{{ item.variant.quantity_rule.increment }}"
+                                  {% # theme-check-enable %}
+                                  aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                  id="Quantity-{{ item.index | plus: 1 }}"
+                                  data-index="{{ item.index | plus: 1 }}"
+                                >
+                                <button
+                                  class="quantity__button no-js-hidden w-[10%] sm:w-fit px-[10%] flex-1"
+                                  name="plus"
+                                  type="button"
+                                >
+                                  <span class="visually-hidden">
+                                    {{-
+                                      'products.product.quantity.increase'
+                                      | t: product: item.product.title
+                                      | escape
+                                    -}}
+                                  </span>
+                                  {% render 'icon-plus' %}
+                                </button>
+                              </quantity-input>
+                            </div>
+                            <cart-remove-button
+                              id="Remove-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
                             >
-                              {% render 'icon-remove' %}
-                            </a>
-                          </cart-remove-button>
+                              <a
+                                href="{{ item.url_to_remove }}"
+                                class="button button--tertiary min-w-[unset] xs:min-w-14"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                              >
+                                {% render 'icon-remove' %}
+                              </a>
+                            </cart-remove-button>
+                          </div>
                         </div>
                         {%- if has_qty_rules or has_vol_pricing -%}
                           <button
@@ -472,7 +494,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 36
+      "default": 0
     },
     {
       "type": "range",
@@ -482,7 +504,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "default": 0
     }
   ]
 }

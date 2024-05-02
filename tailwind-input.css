@@ -72,6 +72,10 @@
   .card__heading .icon-wrap {
     @apply inline-block;
   }
+
+  .cart-items-- * {
+    border: solid red 1px;
+  }
 }
 
 @layer utilities {
@@ -80,11 +84,11 @@
   }
   
   h1 {
-    @apply text-xl
+    @apply text-xl mb-[var(--h1-mb)];
   }
   
   h2, h3 {
-    @apply text-lg
+    @apply text-lg;
   }
 
   .tw-grid {
@@ -108,8 +112,12 @@
   }
 
   .price__regular .price-item::before,
-  .price__sale .price-item--sale::before {
+  .price__sale .price-item--sale::before,
+  .cart-item__details .price::before {
     content: '⊙';
+  }
+  .price__regular .price-item::before,
+  .price__sale .price-item--sale::before {
     @apply text-[1.25rem] -mt-[0.1rem] pr-[0.2rem];
   }
 
@@ -124,6 +132,12 @@
   .card__information {
     @apply py-3;
   }
+
+  .cart-item__details * {
+    @apply text-sm sm:text-base;
+  }
+
+
 
   .faq-item .reveal-answer ~ .faq-answer {
     @apply tw-hidden;
