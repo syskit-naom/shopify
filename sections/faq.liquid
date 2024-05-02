@@ -20,7 +20,15 @@
                     for="faq-item-{{ cat.title }}-{{ forloop.index }}"
                     class="flex items-center justify-between w-full h-full p-4 text-lg cursor-pointer faq-question"
                   >
-                    {{- item.question -}}
+                    <div class="flex flex-col">
+                      <p>{{- item.question -}}</p>
+                      <p class="mt-[2px] pt-[2px] text-xs uppercase border-t border-black w-fit">
+                        {% for item_cat in item.category.value %}
+                          {{ item_cat.title }}
+                          {% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
+                      </p>
+                    </div>
                     <div class="relative flex items-center justify-center w-[17px] h-[17px]">
                       <div class="absolute block w-full h-[1px] bg-black"></div>
                       <div
@@ -36,6 +44,7 @@
                     {{- item.answer | metafield_tag -}}
                   </label>
                 </div>
+                {% break %}
               {% endif %}
             {% endfor %}
           {% endif %}

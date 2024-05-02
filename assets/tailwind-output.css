@@ -702,6 +702,14 @@ video {
   margin-top: 2.5rem;
 }
 
+#tw-wrapper :is(.mt-1) {
+  margin-top: 0.25rem;
+}
+
+#tw-wrapper :is(.mt-\[2px\]) {
+  margin-top: 2px;
+}
+
 #tw-wrapper :is(.block) {
   display: block;
 }
@@ -768,6 +776,11 @@ video {
 
 #tw-wrapper :is(.w-screen) {
   width: 100vw;
+}
+
+#tw-wrapper :is(.w-fit) {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 #tw-wrapper :is(.max-w-screen-sm) {
@@ -854,12 +867,24 @@ video {
   border-color: rgb(var(--almost-black) / 0.1);
 }
 
+#tw-wrapper :is(.border-black) {
+  border-color: rgb(var(--almost-black) / 1);
+}
+
+#tw-wrapper :is(.border-black\/20) {
+  border-color: rgb(var(--almost-black) / 0.2);
+}
+
 #tw-wrapper :is(.bg-black) {
   background-color: rgb(var(--almost-black) / 1);
 }
 
 #tw-wrapper :is(.bg-black\/10) {
   background-color: rgb(var(--almost-black) / 0.1);
+}
+
+#tw-wrapper :is(.bg-black\/20) {
+  background-color: rgb(var(--almost-black) / 0.2);
 }
 
 #tw-wrapper :is(.p-0) {
@@ -931,6 +956,14 @@ video {
   padding-top: 2rem;
 }
 
+#tw-wrapper :is(.pt-1) {
+  padding-top: 0.25rem;
+}
+
+#tw-wrapper :is(.pt-\[2px\]) {
+  padding-top: 2px;
+}
+
 #tw-wrapper :is(.text-base) {
   font-size: 1rem;
   line-height: 120%;
@@ -954,6 +987,10 @@ video {
 
 #tw-wrapper :is(.uppercase) {
   text-transform: uppercase;
+}
+
+#tw-wrapper :is(.lowercase) {
+  text-transform: lowercase;
 }
 
 #tw-wrapper :is(.capitalize) {
