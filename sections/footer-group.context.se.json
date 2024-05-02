@@ -1,0 +1,13 @@
+{
+  "parent": "footer-group.json",
+  "context": {
+    "market": "se"
+  },
+  "sections": {
+    "footer": {
+      "settings": {
+        "newsletter_heading": "Prenumerera på vårt nyhetsbrev"
+      }
+    }
+  }
+}
