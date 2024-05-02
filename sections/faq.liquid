@@ -1,19 +1,45 @@
 <div class="faq-content">
-  <h1>FAQ yaooo</h1>
+  <h1>FAQ yaooo!</h1>
+
+  <div class="flex flex-col gap-y-2">
+    {%- for block in section.blocks -%}
+      <div class="bg-black/10">
+        <p class="text-lg">{{ block.settings.question }}</p>
+        <p class="text-base">{{ block.settings.answer }}</p>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.apps.name",
+  "name": "faq",
   "tag": "section",
-  "class": "section",
+  "class": "faq-section",
   "settings": [
     {
       "type": "header",
       "content": "FAQ"
     }
   ],
-  "blocks": [],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
   "presets": []
 }
 {% endschema %}
