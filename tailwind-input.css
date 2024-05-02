@@ -40,19 +40,6 @@
     @apply bg-primary-bg text-primary-copy;
   }
 
-  
-
-  
-  
-  
-  .tw-grid {
-    display: grid;
-  }
-  
-  .tw-hidden {
-    @apply hidden;
-  }
-
   /* Fixed layout for the Header Search Module */
   .header__search > details[open='true'] {
     @apply fixed top-0 left-0 z-10 w-screen;
@@ -103,6 +90,14 @@
   h2, h3 {
     @apply text-lg
   }
+
+  .tw-grid {
+    display: grid;
+  }
+  
+  .tw-hidden {
+    @apply hidden;
+  }
  
   .page-width {
     @apply px-3 mx-0 lg:px-5;
@@ -115,7 +110,6 @@
   .price, .price-item {
     @apply text-base tracking-tighter;
   }
-
 
   .price__regular .price-item::before,
   .price__sale .price-item--sale::before {
@@ -133,5 +127,21 @@
 
   .card__information {
     @apply py-3;
+  }
+
+  .faq-item .reveal-answer ~ .faq-answer {
+    @apply tw-hidden;
+  }
+  
+  .faq-item .reveal-answer:checked ~ .faq-answer {
+    @apply block;
+  }
+  
+  .faq-item .reveal-answer:checked ~ label .expand-icon-vertical-line {
+    @apply rotate-90 translate-y-1;
+  }
+
+  .faq-item a {
+    @apply underline;
   }
 }

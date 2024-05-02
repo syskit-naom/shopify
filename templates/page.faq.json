@@ -1,29 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "faq",
-      "blocks": {
-        "faq_item_7VTRFW": {
-          "type": "faq_item",
-          "settings": {
-            "question": "fråga 1",
-            "answer": "svar 1"
-          }
-        },
-        "faq_item_kMDgTd": {
-          "type": "faq_item",
-          "settings": {
-            "question": "fråga 2",
-            "answer": "svar 2"
-          }
-        }
-      },
-      "block_order": [
-        "faq_item_7VTRFW",
-        "faq_item_kMDgTd"
-      ],
-      "settings": {
-      }
+      "type": "faq"
     }
   },
   "order": [

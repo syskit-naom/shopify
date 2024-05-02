@@ -472,14 +472,6 @@ video {
   }
 }
 
-.tw-grid {
-  display: grid;
-}
-
-.tw-hidden {
-  display: none;
-}
-
 /* Fixed layout for the Header Search Module */
 
 .header__search > details[open='true'] {
@@ -670,6 +662,10 @@ video {
   position: fixed;
 }
 
+#tw-wrapper :is(.absolute) {
+  position: absolute;
+}
+
 #tw-wrapper :is(.relative) {
   position: relative;
 }
@@ -702,6 +698,10 @@ video {
   margin-top: 0px;
 }
 
+#tw-wrapper :is(.mt-10) {
+  margin-top: 2.5rem;
+}
+
 #tw-wrapper :is(.block) {
   display: block;
 }
@@ -730,6 +730,14 @@ video {
   height: 1.25rem;
 }
 
+#tw-wrapper :is(.h-\[17px\]) {
+  height: 17px;
+}
+
+#tw-wrapper :is(.h-\[1px\]) {
+  height: 1px;
+}
+
 #tw-wrapper :is(.h-full) {
   height: 100%;
 }
@@ -744,6 +752,14 @@ video {
 
 #tw-wrapper :is(.w-5) {
   width: 1.25rem;
+}
+
+#tw-wrapper :is(.w-\[17px\]) {
+  width: 17px;
+}
+
+#tw-wrapper :is(.w-\[1px\]) {
+  width: 1px;
 }
 
 #tw-wrapper :is(.w-full) {
@@ -764,6 +780,10 @@ video {
 
 #tw-wrapper :is(.transform) {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+#tw-wrapper :is(.cursor-pointer) {
+  cursor: pointer;
 }
 
 #tw-wrapper :is(.grid-cols-3) {
@@ -792,6 +812,10 @@ video {
 
 #tw-wrapper :is(.justify-center) {
   justify-content: center;
+}
+
+#tw-wrapper :is(.justify-between) {
+  justify-content: space-between;
 }
 
 #tw-wrapper :is(.gap-x-3) {
@@ -842,6 +866,10 @@ video {
   padding: 0px;
 }
 
+#tw-wrapper :is(.p-4) {
+  padding: 1rem;
+}
+
 #tw-wrapper :is(.p-\[10px\]) {
   padding: 10px;
 }
@@ -887,6 +915,10 @@ video {
   padding-bottom: 2rem;
 }
 
+#tw-wrapper :is(.pb-9) {
+  padding-bottom: 2.25rem;
+}
+
 #tw-wrapper :is(.pr-\[20px\]) {
   padding-right: 20px;
 }
@@ -904,6 +936,11 @@ video {
   line-height: 120%;
 }
 
+#tw-wrapper :is(.text-lg) {
+  font-size: 1.75rem;
+  line-height: 105%;
+}
+
 #tw-wrapper :is(.text-sm) {
   font-size: 0.75rem;
   line-height: 120%;
@@ -913,11 +950,6 @@ video {
   font-size: 0.625rem;
   line-height: 120%;
   letter-spacing: 0.02em;
-}
-
-#tw-wrapper :is(.text-lg) {
-  font-size: 1.75rem;
-  line-height: 105%;
 }
 
 #tw-wrapper :is(.uppercase) {
@@ -954,6 +986,10 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+#tw-wrapper :is(.duration-150) {
+  transition-duration: 150ms;
+}
+
 #tw-wrapper  :is(h1),:is(#tw-wrapper :is(h2)),:is(#tw-wrapper :is(h3)),:is(#tw-wrapper :is(h4)),:is(#tw-wrapper :is(h5)),:is(#tw-wrapper :is(h6)),:is(#tw-wrapper :is(p)),:is(#tw-wrapper :is(span)),:is(#tw-wrapper :is(div)),:is(#tw-wrapper :is(input)),:is(#tw-wrapper :is(button)),:is(#tw-wrapper :is(textarea)),:is(#tw-wrapper :is(label)),:is(#tw-wrapper :is(summary)),:is(#tw-wrapper :is(section)),:is(#tw-wrapper :is(article)),:is(#tw-wrapper :is(aside)),:is(#tw-wrapper :is(footer)),:is(#tw-wrapper :is(header)),:is(#tw-wrapper :is(nav)),:is(#tw-wrapper :is(main)),:is(#tw-wrapper :is(ul)),:is(#tw-wrapper :is(ol)),:is(#tw-wrapper :is(li)),:is(#tw-wrapper :is(dl)),:is(#tw-wrapper :is(dt)),:is(#tw-wrapper :is(dd)),:is(#tw-wrapper :is(blockquote)),:is(#tw-wrapper :is(code)),:is(#tw-wrapper :is(pre)),:is(#tw-wrapper :is(table)),:is(#tw-wrapper :is(th)),:is(#tw-wrapper :is(td)),:is(#tw-wrapper :is(form)),:is(#tw-wrapper :is(fieldset)),:is(#tw-wrapper :is(legend)),:is(#tw-wrapper :is(figure)),:is(#tw-wrapper :is(figcaption)),:is(#tw-wrapper :is(hr)) {
   letter-spacing: -0.05rem;
 }
@@ -966,6 +1002,14 @@ video {
 #tw-wrapper  :is(h2),:is( #tw-wrapper :is(h3)) {
   font-size: 1.75rem;
   line-height: 105%;
+}
+
+#tw-wrapper :is(.tw-grid) {
+  display: grid;
+}
+
+#tw-wrapper  :is(.tw-hidden) {
+  display: none;
 }
 
 #tw-wrapper  :is(.page-width) {
@@ -1017,6 +1061,24 @@ video {
 #tw-wrapper  :is(.card__information) {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+
+#tw-wrapper   :is(.faq-item .reveal-answer ~ .faq-answer) {
+  display: none;
+}
+
+#tw-wrapper  :is(.faq-item .reveal-answer:checked ~ .faq-answer) {
+  display: block;
+}
+
+#tw-wrapper  :is(.faq-item .reveal-answer:checked ~ label .expand-icon-vertical-line) {
+  --tw-translate-y: 0.25rem;
+  --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+#tw-wrapper  :is(.faq-item a) {
+  text-decoration-line: underline;
 }
 
 @media (min-width: 640px) {

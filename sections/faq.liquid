@@ -1,11 +1,45 @@
-<div class="faq-content">
-  <h1>FAQ yaooo!</h1>
+{% comment %} TODO: introduce pagination {% endcomment %}
+<div class="mt-10 pb-9 faq-content page-width">
+  <h1>{{ page.title }}</h1>
 
-  <div class="flex flex-col gap-y-2">
-    {%- for block in section.blocks -%}
-      <div class="bg-black/10">
-        <p class="text-lg">{{ block.settings.question }}</p>
-        <p class="text-base">{{ block.settings.answer }}</p>
+  <div class="flex flex-col pt-4 gap-y-2">
+    {%- for cat in shop.metaobjects.faq_category.values -%}
+      <div class="flex flex-col pt-4 gap-y-2">
+        <h2 class="text-base">{{ cat.title }}</h2>
+        {%- for item in shop.metaobjects.faq_item.values -%}
+          {% if item.question != blank and item.answer != blank %}
+            {% for item_cat in item.category.value %}
+              {% if item_cat == cat %}
+                <div class="relative bg-black/10 faq-item">
+                  <input
+                    id="faq-item-{{ cat.title }}-{{ forloop.index }}"
+                    type="checkbox"
+                    class="reveal-answer tw-hidden"
+                  >
+                  <label
+                    for="faq-item-{{ cat.title }}-{{ forloop.index }}"
+                    class="flex items-center justify-between w-full h-full p-4 text-lg cursor-pointer faq-question"
+                  >
+                    {{- item.question -}}
+                    <div class="relative flex items-center justify-center w-[17px] h-[17px]">
+                      <div class="absolute block w-full h-[1px] bg-black"></div>
+                      <div
+                        class="absolute block w-[1px] h-full duration-150 bg-black expand-icon-vertical-line"
+                      ></div>
+                    </div>
+                  </label>
+
+                  <label
+                    for="faq-item-{{ cat.title }}-{{ forloop.index }}"
+                    class="block p-4 pt-4 text-base border-t faq-answer border-black/10"
+                  >
+                    {{- item.answer | metafield_tag -}}
+                  </label>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
       </div>
     {% endfor %}
   </div>
@@ -20,26 +54,13 @@
     {
       "type": "header",
       "content": "FAQ"
-    }
-  ],
-  "blocks": [
+    },
     {
-      "type": "faq_item",
-      "name": "FAQ Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "question",
-          "label": "Question"
-        },
-        {
-          "type": "text",
-          "id": "answer",
-          "label": "Answer"
-        }
-      ]
+      "type": "paragraph",
+      "content": "Note: FAQ items are created from the main dashboard. Select Content --> Metaobjects --> FAQ Item. Click \"Add entry\"."
     }
   ],
+  "blocks": [],
   "presets": []
 }
 {% endschema %}
