@@ -1155,6 +1155,8 @@ video {
   left: 0.5rem;
   height: 1rem;
   width: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 243 243 / var(--tw-bg-opacity));
   font-size: 0.625rem;
   line-height: 120%;
   letter-spacing: 0.02em;
