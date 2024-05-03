@@ -1,0 +1,78 @@
+{% comment %} TODO: introduce pagination {% endcomment %}
+<div class="faq-content page-width">
+  <h1>{{ page.title }}</h1>
+
+  <div class="flex flex-col pt-4 gap-y-2">
+    {%- for cat in shop.metaobjects.faq_category.values -%}
+      <div class="flex flex-col pt-4 gap-y-2">
+        <h2 class="text-base">{{ cat.title }}</h2>
+        {%- for item in shop.metaobjects.faq_item.values -%}
+          {% if item.question != blank and item.answer != blank %}
+            {% for item_cat in item.category.value %}
+              {% if item_cat == cat %}
+                <div class="relative bg-black/10 faq-item">
+                  <input
+                    id="faq-item-{{ cat.title }}-{{ forloop.index }}"
+                    type="checkbox"
+                    class="reveal-answer tw-hidden"
+                  >
+                  <label
+                    for="faq-item-{{ cat.title }}-{{ forloop.index }}"
+                    class="flex items-center justify-between w-full h-full p-4 text-lg cursor-pointer faq-question"
+                  >
+                    <div class="flex flex-col">
+                      <p>{{- item.question -}}</p>
+                      <p class="mt-[2px] pt-[2px] text-xs uppercase border-t border-black w-fit">
+                        {% for item_cat in item.category.value %}
+                          {%- if forloop.first -%}
+                            {{ 'faq.categories' | t }}:{{ ' ' }}
+                          {%- endif -%}
+                          {{- item_cat.title -}}
+                          {%- unless forloop.last %}, {% endunless -%}
+                        {% endfor %}
+                      </p>
+                    </div>
+                    <div class="relative flex items-center justify-center w-[17px] h-[17px]">
+                      <div class="absolute block w-full h-[1px] bg-black"></div>
+                      <div
+                        class="absolute block w-[1px] h-full duration-150 bg-black expand-icon-vertical-line"
+                      ></div>
+                    </div>
+                  </label>
+
+                  <label
+                    for="faq-item-{{ cat.title }}-{{ forloop.index }}"
+                    class="block p-4 pt-4 text-base border-t faq-answer border-black/10"
+                  >
+                    {{- item.answer | metafield_tag -}}
+                  </label>
+                </div>
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "faq",
+  "tag": "section",
+  "class": "faq-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "FAQ"
+    },
+    {
+      "type": "paragraph",
+      "content": "Note: FAQ items are created from the main dashboard. Select Content --> Metaobjects --> FAQ Item. Click \"Add entry\"."
+    }
+  ],
+  "blocks": [],
+  "presets": []
+}
+{% endschema %}

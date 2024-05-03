@@ -2,25 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .hidden-tw {
-    @apply hidden;
+@layer base {
+  :root {
+    --white: 255 255 255;
+    --almost-black: 1 1 1;
+    --gray: 129 129 129;
+    --gray-light: 200 200 200;
+
+    --primary-copy: var(--black);
+    --secondary-copy: var(--gray);
+    --alternative-copy: var(--white);
+    --primary-bg: var(--white);
+    --alternative-bg: var(--black);
+
+    --font-gotham: 'Gotham';
+    --font-schabo: 'SCHABO';
+
+    --tw-header-height: 5rem; /* 80px */
+
+    @apply antialiased font-gotham bg-primary-bg text-primary-copy;
   }
 
+  @media screen and (min-width: 990px) {
+    :root {
+      --tw-header-height: 3rem; /* 48px */
+    }
+  }
+
+  html.light-mode,
+  html:not(.dark) .light-mode {
+    --primary-copy: var(--white);
+    --secondary-copy: var(--gray-light);
+    --alternative-copy: var(--black);
+    --primary-bg: var(--black); 
+    --alternative-bg: var(--white);
+
+    @apply bg-primary-bg text-primary-copy;
+  }
 
   /* Fixed layout for the Header Search Module */
   .header__search > details[open='true'] {
     @apply fixed top-0 left-0 z-10 w-screen;
   }
- 
+  
   .header__search > details[open='true'] > summary {
-    @apply hidden-tw;
+    @apply tw-hidden;
   }
   
   .header__search > details > .search-modal {
     @apply relative;
   }
-  .header__search > details .search-modal__content {
+  .header__search > details .search-modal__content { 
     @apply p-8;
   }
   .header__search > details .search-modal__content .search-modal__close-button {
@@ -31,5 +63,105 @@
   }
   .header__search > details > .search-modal input[type="search"] {
     @apply border-none;
+  }
+  
+  .header__icon--menu[aria-expanded='true']::before {
+    @apply fixed z-[-1] left-0 top-0 w-screen h-screen;
+  }
+}
+
+@layer utilities {
+  h1,h2,h3,h4,h5,h6,p,span,div,input,button,textarea,label,summary,section,article,aside,footer,header,nav,main,ul,ol,li,dl,dt,dd,blockquote,code,pre,table,th,td,form,fieldset,legend,figure,figcaption,hr {
+    @apply tracking-[-0.05rem];
+  }
+  
+  h1 {
+    @apply text-xl mb-[var(--h1-mb)];
+  }
+  
+  h2, h3 {
+    @apply text-lg;
+  }
+
+  .tw-grid {
+    display: grid;
+  }
+  
+  .tw-hidden {
+    @apply hidden;
+  }
+ 
+  .page-width {
+    @apply max-w-screen-xl px-3 mx-0 xl:mx-auto lg:px-5;
+  }
+
+  .icon {
+    @apply max-w-full max-h-full;
+  }
+
+  .price, .price-item {
+    @apply text-base tracking-tighter;
+  }
+
+  .price__regular .price-item::before,
+  .price__sale .price-item--sale::before,
+  .cart-item__details .price::before {
+    content: '⊙';
+  }
+  .price__regular .price-item::before,
+  .price__sale .price-item--sale::before {
+    @apply text-[1.25rem] -mt-[0.1rem] pr-[0.2rem];
+  }
+
+  .card__heading .icon-wrap {
+    @apply inline-block;
+  }
+
+  .cart-items-- * {
+    border: solid red 1px;
+  }
+
+  .cart-count-bubble {
+    @apply absolute w-4 h-4 text-xs top-3 left-2; 
+  }
+
+  .cart-notification-wrapper * {
+    @apply text-base;
+  }
+
+  .product-form__error-message, .cart-item__error *, .error-message {
+    @apply my-auto text-sm;
+  }
+
+  .grid.contains-card {
+    @apply grid-cols-1 gap-y-8 tw-grid xs:grid-cols-2 lg:flex;
+  }
+
+  .card__heading {
+    @apply text-lg;
+  }
+
+  .card__information {
+    @apply py-3;
+  }
+
+  .cart-item__details * {
+    @apply text-sm sm:text-base;
+  }
+
+  .faq-item .reveal-answer ~ .faq-answer {
+    @apply tw-hidden;
+  }
+  
+  .faq-item .reveal-answer:checked ~ .faq-answer {
+    @apply block;
+  }
+  
+  .faq-item .reveal-answer:checked ~ label .expand-icon-vertical-line {
+    @apply rotate-90 translate-y-1;
+  }
+
+  .faq-item a {
+    @apply underline;
   }
 }

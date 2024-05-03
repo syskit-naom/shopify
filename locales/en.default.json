@@ -57,6 +57,9 @@
       "name": "Slider"
     }
   },
+  "faq": {
+    "categories": "Categories"
+  },
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
@@ -271,7 +274,6 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",

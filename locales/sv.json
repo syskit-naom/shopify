@@ -57,6 +57,9 @@
       "name": "Bild"
     }
   },
+  "faq": {
+    "categories": "Kategorier"
+  },
   "newsletter": {
     "label": "E-post",
     "success": "Tack för att du prenumererar",
