@@ -519,10 +519,6 @@ video {
   width: 100vw;
 }
 
-.card__heading .icon-wrap {
-  display: inline-block;
-}
-
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -677,16 +673,8 @@ video {
   bottom: 0px;
 }
 
-#tw-wrapper :is(.left-2) {
-  left: 0.5rem;
-}
-
 #tw-wrapper :is(.right-0) {
   right: 0px;
-}
-
-#tw-wrapper :is(.top-3) {
-  top: 0.75rem;
 }
 
 #tw-wrapper :is(.isolate) {
@@ -1155,6 +1143,33 @@ video {
   margin-top: -0.1rem;
   padding-right: 0.2rem;
   font-size: 1.25rem;
+}
+
+#tw-wrapper  :is(.card__heading .icon-wrap) {
+  display: inline-block;
+}
+
+#tw-wrapper  :is(.cart-count-bubble) {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+  font-size: 0.625rem;
+  line-height: 120%;
+  letter-spacing: 0.02em;
+}
+
+#tw-wrapper  :is(.cart-notification-wrapper *) {
+  font-size: 1rem;
+  line-height: 120%;
+}
+
+#tw-wrapper  :is(.product-form__error-message),:is( #tw-wrapper :is(.cart-item__error *)),:is( #tw-wrapper :is(.error-message)) {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 0.75rem;
+  line-height: 120%;
 }
 
 #tw-wrapper  :is(.grid.contains-card) {
