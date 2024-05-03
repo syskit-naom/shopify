@@ -116,13 +116,9 @@
   .card__heading .icon-wrap {
     @apply inline-block;
   }
-
-  .cart-items-- * {
-    border: solid red 1px;
-  }
-
+  
   .cart-count-bubble {
-    @apply absolute w-4 h-4 text-xs top-3 left-2; 
+    @apply absolute w-4 h-4 text-xs top-3 left-2 bg-[rgb(243,243,243)]; 
   }
 
   .cart-notification-wrapper * {
