@@ -2,6 +2,9 @@
   "current": {
     "logo": "shopify:\/\/shop_images\/NAOM.svg",
     "logo_width": 50,
+    "heading_scale": 100,
+    "body_scale": 100,
+    "page_width": 1600,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 16,
     "spacing_grid_vertical": 16,
@@ -113,9 +116,6 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
-    "heading_scale": 100,
-    "body_scale": 100,
-    "page_width": 1440,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
