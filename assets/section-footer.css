@@ -290,6 +290,10 @@
   }
 }
 
+.footer__payment {
+  filter: grayscale(100);
+}
+
 .footer__content-bottom-wrapper--center {
   justify-content: center;
 }

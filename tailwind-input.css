@@ -87,18 +87,13 @@
     @apply mt-12;
   }
 
-  /* contact form */
-  form#ContactForm {
-    @apply max-w-screen-md;
-  }
-
   /* input */
   .field__label,
   .customer .field label {
     @apply text-base leading-10 text-black;
   }
   .field__input, .customer .field input {
-    @apply min-h-[unset] h-10 py-0;
+    @apply py-0 min-h-10;
   }
   .field__label,
   .customer .field label {
@@ -117,17 +112,20 @@
   }
   
   /* button */
-  button, .button, .shopify-payment-button, .shopify-payment-button__button {
-    @apply text-base min-h-[unset] h-10 py-0;
+  button, .button, .shopify-payment-button__button {
+    @apply py-0 text-base min-h-10 min-w-[unset];
+  }
+  button, .button {
+    @apply py-2;
   }
 
   /* select input */
   .disclosure__button.localization-form__select {
     padding: calc(2rem + var(--inputs-border-width));
-    @apply min-h-[unset] h-10 text-base py-0;
+    @apply py-0 text-base min-h-10;
   }
   .select__select, .product-form__submit {
-    @apply min-h-[unset] h-10;
+    @apply h-10;
   }
   .disclosure__button.localization-form__select span {
     @apply pr-6 text-base;
@@ -140,12 +138,26 @@
     @apply text-white bg-black;
   }
 
+   /* contact form */
+   form#ContactForm {
+    @apply max-w-screen-md;
+  }
+  form#ContactForm .field {
+    @apply h-fit;
+  }
+  form#ContactForm .field input {
+    @apply h-10;
+  }
+  form#ContactForm .field textarea {
+    @apply pt-4;
+  }
+
   /* newsletter */
   .newsletter-form__field-wrapper {
     @apply mx-auto xs:max-w-xs;
   }
   .newsletter-form__field-wrapper input {
-    @apply min-h-[unset] h-10 py-0;
+    @apply h-10 py-0;
   }
   
   /* fixed layout for the Header Search Module */
@@ -179,7 +191,7 @@
     @apply md:justify-end;
   }
   .cart__ctas > button {
-    @apply min-w-[unset] max-w-xs;
+    @apply min-w-[unset] xs:max-w-xs;
   }
   .product-form__error-message, .cart-item__error *, .error-message {
     @apply my-auto text-sm;
@@ -190,11 +202,14 @@
   .cart__dynamic-checkout-buttons {
     @apply md:mr-0;
   }
-  .product-form__buttons > button, .cart__checkout-button button {
-    @apply min-h-[unset] h-10 w-full;
+  .product-form__buttons > button, .cart__checkout-button {
+    @apply w-full py-2 min-h-10 bg-alternative-bg text-alternative-copy;
   }
   .cart-item__details * {
     @apply text-sm sm:text-base;
+  }
+  .cart-item__totals .price--end {
+    @apply justify-end;
   }
   .product-form__buttons .shopify-payment-button__more-options {
     @apply mt-4 text-sm text-left;
@@ -205,7 +220,6 @@
   .price, .price-item {
     @apply text-base tracking-tighter;
   }
-
   .product-form *[role="button"], .product-form button, .product-form__input {
     @apply xs:max-w-xs;
   }
@@ -228,7 +242,7 @@
     @apply inline-block;
   }
   .cart-count-bubble {
-    @apply absolute w-4 h-4 text-xs top-3 left-2 bg-[rgb(243,243,243)]; 
+    @apply absolute w-4 h-4 text-xs top-3 left-2 bg-[rgb(243,243,243)] text-primary-copy; 
   }
   .cart-notification-wrapper * {
     @apply text-base;
