@@ -56,6 +56,10 @@
     @apply text-lg;
   }
 
+  button, *[role="button"] {
+    @apply xs:max-w-xs;
+  }
+
   .tw-grid {
     display: grid;
   }
@@ -68,19 +72,78 @@
     @apply max-w-screen-xl px-3 mx-0 xl:mx-auto lg:px-5;
   }
 
+  /* card grid */
+  .grid.contains-card {
+    @apply grid-cols-1 gap-y-8 tw-grid xs:grid-cols-2 lg:flex;
+  }
+  .card__heading {
+    @apply text-lg;
+  }
+  .card__information {
+    @apply py-3;
+  }
   .icon {
     @apply max-w-full max-h-full;
   }
-  
-   /* Fixed layout for the Header Search Module */
-   .header__search > details[open='true'] {
-    @apply fixed top-0 left-0 z-10 w-screen;
+
+  /* form field */
+  .field__label,
+  .customer .field label {
+    @apply text-base leading-10 text-black;
+  }
+  .field__input, .customer .field input {
+    @apply min-h-[unset] h-10 py-0;
+  }
+  .field__label,
+  .customer .field label {
+    @apply top-0;
+  }
+  .field__input:focus~.field__label,
+  .field__input:not(:placeholder-shown)~.field__label,
+  .field__input:-webkit-autofill~.field__label,
+  .customer .field input:focus~label,
+  .customer .field input:not(:placeholder-shown)~label,
+  .customer .field input:-webkit-autofill~label {
+    font-size: 0.8rem;
+    top: calc(var(--inputs-border-width) - 0.5rem);
+    left: calc(var(--inputs-border-width) + 2rem);
+    @apply text-sm leading-8;
+  }
+
+  /* select input */
+  .disclosure__button.localization-form__select {
+    padding: calc(2rem + var(--inputs-border-width));
+    @apply min-h-[unset] h-10 text-base py-0;
+  }
+  .select__select, .product-form__submit {
+    @apply min-h-[unset] h-10;
+  }
+  .disclosure__button.localization-form__select span {
+    @apply pr-6 text-base;
+  }
+  .disclosure .localization-form__select,
+  .disclosure__link, .link .customer a {
+    @apply text-base;
+  }
+  .product-form__submit {
+    @apply text-white bg-black;
+  }
+
+  /* newsletter */
+  .newsletter-form__field-wrapper {
+    @apply mx-auto xs:max-w-xs;
+  }
+  .newsletter-form__field-wrapper input {
+    @apply min-h-[unset] h-10 py-0;
   }
   
+  /* fixed layout for the Header Search Module */
+  .header__search > details[open='true'] {
+    @apply fixed top-0 left-0 z-10 w-screen;
+  }
   .header__search > details[open='true'] > summary {
     @apply tw-hidden;
   }
-  
   .header__search > details > .search-modal {
     @apply relative;
   }
@@ -96,15 +159,46 @@
   .header__search > details > .search-modal input[type="search"] {
     @apply border-none;
   }
-  
   .header__icon--menu[aria-expanded='true']::before {
     @apply fixed z-[-1] left-0 top-0 w-screen h-screen;
   }
   
+  /* cart */
+  .cart__ctas {
+    @apply md:justify-end;
+  }
+  .product-form__error-message, .cart-item__error *, .error-message {
+    @apply my-auto text-sm;
+  }
+  .cart__dynamic-checkout-buttons, .product-form__buttons {
+    @apply xs:max-w-xs;
+  }
+  .cart__dynamic-checkout-buttons {
+    @apply md:mr-0;
+  }
+  button, .button {
+    @apply min-h-[unset] h-10
+  }
+  .product-form__buttons > button, .cart__checkout-button button {
+    @apply min-h-[unset] h-10 w-full xs:max-w-xs;
+  }
+  .cart-item__details * {
+    @apply text-sm sm:text-base;
+  }
+  .product-form__buttons .shopify-payment-button__more-options {
+    @apply mt-4 text-sm text-left;
+  }
+  .product-form__input * {
+    @apply text-sm xs:max-w-xs;
+  }
   .price, .price-item {
     @apply text-base tracking-tighter;
   }
 
+  /* product */
+  .price, .price--large, .price--regular {
+    @apply flex items-center gap-x-4;
+  }
   .price__regular .price-item::before,
   .price__sale .price-item--sale::before,
   .cart-item__details .price::before {
@@ -114,51 +208,36 @@
   .price__sale .price-item--sale::before {
     @apply text-[1.25rem] -mt-[0.1rem] pr-[0.2rem];
   }
-
   .card__heading .icon-wrap {
     @apply inline-block;
   }
-  
   .cart-count-bubble {
     @apply absolute w-4 h-4 text-xs top-3 left-2 bg-[rgb(243,243,243)]; 
   }
-
   .cart-notification-wrapper * {
     @apply text-base;
   }
-
-  .product-form__error-message, .cart-item__error *, .error-message {
-    @apply my-auto text-sm;
+  quantity-input.quantity, quantity-input.quantity > * {
+    @apply text-base flex-1 min-w-[unset] h-10 min-h-[unset] w-full;
+    font-weight: normal;
+  }
+  .price-per-item__container,quantity-input.quantity {
+    @apply relative max-w-32;
+  }
+  quantity-input.quantity .icon {
+    @apply w-2 h-2;
   }
 
-  .grid.contains-card {
-    @apply grid-cols-1 gap-y-8 tw-grid xs:grid-cols-2 lg:flex;
-  }
-
-  .card__heading {
-    @apply text-lg;
-  }
-
-  .card__information {
-    @apply py-3;
-  }
-
-  .cart-item__details * {
-    @apply text-sm sm:text-base;
-  }
-
+  /* faq */
   .faq-item .reveal-answer ~ .faq-answer {
     @apply tw-hidden;
   }
-  
   .faq-item .reveal-answer:checked ~ .faq-answer {
     @apply block;
   }
-  
   .faq-item .reveal-answer:checked ~ label .expand-icon-vertical-line {
     @apply rotate-90 translate-y-1;
   }
-
   .faq-item a {
     @apply underline;
   }

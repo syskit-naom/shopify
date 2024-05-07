@@ -950,6 +950,10 @@ video {
   padding-left: 0px;
 }
 
+#tw-wrapper :is(.pl-5) {
+  padding-left: 1.25rem;
+}
+
 #tw-wrapper :is(.pr-\[20px\]) {
   padding-right: 20px;
 }
@@ -1044,6 +1048,12 @@ video {
   line-height: 105%;
 }
 
+@media (min-width: 480px) {
+  #tw-wrapper  :is(button),:is( #tw-wrapper :is(*[role="button"])) {
+    max-width: 20rem;
+  }
+}
+
 #tw-wrapper :is(.tw-grid) {
   display: grid;
 }
@@ -1074,12 +1084,141 @@ video {
   }
 }
 
+/* card grid */
+
+#tw-wrapper  :is(.grid.contains-card) {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  row-gap: 2rem;
+  display: grid;
+}
+
+@media (min-width: 480px) {
+  #tw-wrapper  :is(.grid.contains-card) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 990px) {
+  #tw-wrapper  :is(.grid.contains-card) {
+    display: flex;
+  }
+}
+
+#tw-wrapper  :is(.card__heading) {
+  font-size: 1.75rem;
+  line-height: 105%;
+}
+
+#tw-wrapper  :is(.card__information) {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 #tw-wrapper  :is(.icon) {
   max-height: 100%;
   max-width: 100%;
 }
 
-/* Fixed layout for the Header Search Module */
+/* form field */
+
+#tw-wrapper  :is(.field__label),:is(
+  #tw-wrapper :is(.customer .field label)) {
+  font-size: 1rem;
+  line-height: 120%;
+  line-height: 2.5rem;
+  color: rgb(var(--almost-black) / 1);
+}
+
+#tw-wrapper  :is(.field__input),:is( #tw-wrapper :is(.customer .field input)) {
+  height: 2.5rem;
+  min-height: unset;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#tw-wrapper  :is(.field__label),:is(
+  #tw-wrapper :is(.customer .field label)) {
+  top: 0px;
+}
+
+#tw-wrapper :is(.field__input:focus~.field__label),
+  #tw-wrapper :is(.field__input:not(:placeholder-shown)~.field__label),
+  #tw-wrapper :is(.field__input:-webkit-autofill~.field__label),
+  #tw-wrapper :is(.customer .field input:focus~label),
+  #tw-wrapper :is(.customer .field input:not(:placeholder-shown)~label),
+  #tw-wrapper :is(.customer .field input:-webkit-autofill~label) {
+  font-size: 0.8rem;
+  top: calc(var(--inputs-border-width) - 0.5rem);
+  left: calc(var(--inputs-border-width) + 2rem);
+}
+
+#tw-wrapper  :is(.field__input:focus~.field__label),:is(
+  #tw-wrapper :is(.field__input:not(:placeholder-shown)~.field__label)),:is(
+  #tw-wrapper :is(.field__input:-webkit-autofill~.field__label)),:is(
+  #tw-wrapper :is(.customer .field input:focus~label)),:is(
+  #tw-wrapper :is(.customer .field input:not(:placeholder-shown)~label)),:is(
+  #tw-wrapper :is(.customer .field input:-webkit-autofill~label)) {
+  font-size: 0.75rem;
+  line-height: 120%;
+  line-height: 2rem;
+}
+
+/* select input */
+
+#tw-wrapper :is(.disclosure__button.localization-form__select) {
+  padding: calc(2rem + var(--inputs-border-width));
+  height: 2.5rem;
+  min-height: unset;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 1rem;
+  line-height: 120%;
+}
+
+#tw-wrapper  :is(.select__select),:is( #tw-wrapper :is(.product-form__submit)) {
+  height: 2.5rem;
+  min-height: unset;
+}
+
+#tw-wrapper  :is(.disclosure__button.localization-form__select span) {
+  padding-right: 1.5rem;
+  font-size: 1rem;
+  line-height: 120%;
+}
+
+#tw-wrapper  :is(.disclosure .localization-form__select),:is(
+  #tw-wrapper :is(.disclosure__link)),:is(
+  #tw-wrapper :is(.link .customer a)) {
+  font-size: 1rem;
+  line-height: 120%;
+}
+
+#tw-wrapper  :is(.product-form__submit) {
+  background-color: rgb(var(--almost-black) / 1);
+  color: rgb(var(--white) / 1);
+}
+
+/* newsletter */
+
+#tw-wrapper  :is(.newsletter-form__field-wrapper) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 480px) {
+  #tw-wrapper  :is(.newsletter-form__field-wrapper) {
+    max-width: 20rem;
+  }
+}
+
+#tw-wrapper  :is(.newsletter-form__field-wrapper input) {
+  height: 2.5rem;
+  min-height: unset;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/* fixed layout for the Header Search Module */
 
 #tw-wrapper  :is(.header__search > details[open='true']) {
   position: fixed;
@@ -1126,10 +1265,105 @@ video {
   width: 100vw;
 }
 
+/* cart */
+
+@media (min-width: 750px) {
+  #tw-wrapper  :is(.cart__ctas) {
+    justify-content: flex-end;
+  }
+}
+
+#tw-wrapper  :is(.product-form__error-message),:is( #tw-wrapper :is(.cart-item__error *)),:is( #tw-wrapper :is(.error-message)) {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 0.75rem;
+  line-height: 120%;
+}
+
+@media (min-width: 480px) {
+  #tw-wrapper  :is(.cart__dynamic-checkout-buttons),:is( #tw-wrapper :is(.product-form__buttons)) {
+    max-width: 20rem;
+  }
+}
+
+@media (min-width: 750px) {
+  #tw-wrapper  :is(.cart__dynamic-checkout-buttons) {
+    margin-right: 0px;
+  }
+}
+
+#tw-wrapper  :is(button),:is( #tw-wrapper :is(.button)) {
+  height: 2.5rem;
+  min-height: unset;
+}
+
+#tw-wrapper  :is(.product-form__buttons > button),:is( #tw-wrapper :is(.cart__checkout-button button)) {
+  height: 2.5rem;
+  min-height: unset;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  #tw-wrapper  :is(.product-form__buttons > button),:is( #tw-wrapper :is(.cart__checkout-button button)) {
+    max-width: 20rem;
+  }
+}
+
+#tw-wrapper  :is(.product-form__buttons > button),:is( #tw-wrapper :is(.cart__checkout-button button)) {
+  height: 2.5rem;
+  min-height: unset;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  #tw-wrapper  :is(.product-form__buttons > button),:is( #tw-wrapper :is(.cart__checkout-button button)) {
+    max-width: 20rem;
+  }
+}
+
+#tw-wrapper  :is(.cart-item__details *) {
+  font-size: 0.75rem;
+  line-height: 120%;
+}
+
+@media (min-width: 640px) {
+  #tw-wrapper  :is(.cart-item__details *) {
+    font-size: 1rem;
+    line-height: 120%;
+  }
+}
+
+#tw-wrapper  :is(.product-form__buttons .shopify-payment-button__more-options) {
+  margin-top: 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  line-height: 120%;
+}
+
+#tw-wrapper  :is(.product-form__input *) {
+  font-size: 0.75rem;
+  line-height: 120%;
+}
+
+@media (min-width: 480px) {
+  #tw-wrapper  :is(.product-form__input *) {
+    max-width: 20rem;
+  }
+}
+
 #tw-wrapper  :is(.price),:is( #tw-wrapper :is(.price-item)) {
   font-size: 1rem;
   line-height: 120%;
   letter-spacing: -0.05em;
+}
+
+/* product */
+
+#tw-wrapper  :is(.price),:is( #tw-wrapper :is(.price--large)),:is( #tw-wrapper :is(.price--regular)) {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
 }
 
 #tw-wrapper :is(.price__regular .price-item)::before,
@@ -1167,52 +1401,31 @@ video {
   line-height: 120%;
 }
 
-#tw-wrapper  :is(.product-form__error-message),:is( #tw-wrapper :is(.cart-item__error *)),:is( #tw-wrapper :is(.error-message)) {
-  margin-top: auto;
-  margin-bottom: auto;
-  font-size: 0.75rem;
+#tw-wrapper  :is(quantity-input.quantity),:is( #tw-wrapper :is(quantity-input.quantity > *)) {
+  height: 2.5rem;
+  min-height: unset;
+  width: 100%;
+  min-width: unset;
+  flex: 1 1 0%;
+  font-size: 1rem;
   line-height: 120%;
 }
 
-#tw-wrapper  :is(.grid.contains-card) {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  row-gap: 2rem;
-  display: grid;
+#tw-wrapper :is(quantity-input.quantity), #tw-wrapper :is(quantity-input.quantity > *) {
+  font-weight: normal;
 }
 
-@media (min-width: 480px) {
-  #tw-wrapper  :is(.grid.contains-card) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+#tw-wrapper  :is(.price-per-item__container),:is(#tw-wrapper :is(quantity-input.quantity)) {
+  position: relative;
+  max-width: 8rem;
 }
 
-@media (min-width: 990px) {
-  #tw-wrapper  :is(.grid.contains-card) {
-    display: flex;
-  }
+#tw-wrapper  :is(quantity-input.quantity .icon) {
+  height: 0.5rem;
+  width: 0.5rem;
 }
 
-#tw-wrapper  :is(.card__heading) {
-  font-size: 1.75rem;
-  line-height: 105%;
-}
-
-#tw-wrapper  :is(.card__information) {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
-#tw-wrapper  :is(.cart-item__details *) {
-  font-size: 0.75rem;
-  line-height: 120%;
-}
-
-@media (min-width: 640px) {
-  #tw-wrapper  :is(.cart-item__details *) {
-    font-size: 1rem;
-    line-height: 120%;
-  }
-}
+/* faq */
 
 #tw-wrapper   :is(.faq-item .reveal-answer ~ .faq-answer) {
   display: none;
