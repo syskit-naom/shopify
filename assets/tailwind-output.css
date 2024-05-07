@@ -670,6 +670,14 @@ video {
   margin-top: 2px;
 }
 
+#tw-wrapper :is(.mb-0) {
+  margin-bottom: 0px;
+}
+
+#tw-wrapper :is(.mt-12) {
+  margin-top: 3rem;
+}
+
 #tw-wrapper :is(.block) {
   display: block;
 }
@@ -982,6 +990,10 @@ video {
   padding-top: var(--page-pt);
 }
 
+#tw-wrapper :is(.pt-0) {
+  padding-top: 0px;
+}
+
 #tw-wrapper :is(.text-base) {
   font-size: 1rem;
   line-height: 120%;
@@ -1060,12 +1072,6 @@ video {
   line-height: 105%;
 }
 
-@media (min-width: 480px) {
-  #tw-wrapper  :is(.product-form *[role="button"]),:is( #tw-wrapper :is(.product-form button)) {
-    max-width: 20rem;
-  }
-}
-
 #tw-wrapper :is(.tw-grid) {
   display: grid;
 }
@@ -1129,6 +1135,12 @@ video {
 #tw-wrapper  :is(.icon) {
   max-height: 100%;
   max-width: 100%;
+}
+
+/* section gap */
+
+#tw-wrapper  :is(#MainContent section:not(:first-child, :nth-child(2))) {
+  margin-top: 3rem;
 }
 
 /* contact form */
@@ -1362,7 +1374,11 @@ video {
   letter-spacing: -0.05em;
 }
 
-/* product */
+@media (min-width: 480px) {
+  #tw-wrapper  :is(.product-form *[role="button"]),:is( #tw-wrapper :is(.product-form button)),:is( #tw-wrapper :is(.product-form__input)) {
+    max-width: 20rem;
+  }
+}
 
 #tw-wrapper  :is(.product__description) {
   margin-top: 4rem;
@@ -1553,6 +1569,10 @@ video {
 
   #tw-wrapper :is(.lg\:pt-\[var\(--page-pt-lg\)\]) {
     padding-top: var(--page-pt-lg);
+  }
+
+  #tw-wrapper :is(.lg\:pt-0) {
+    padding-top: 0px;
   }
 }
 

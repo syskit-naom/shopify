@@ -351,24 +351,24 @@
 
     <div class="pb-8 uppercase page-width">
       <div class="footer__copyright caption lg:flex lg:flex-wrap">
-        <small class="text-xs lg:pt-2 copyright__content"
+        <small class="text-xs lg:flex lg:items-center lg:pt-0 copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}
           <span class="">All rights reserved,</span> {{ shop.name | link_to: routes.root_url }}
           {{ powered_by_link -}}
         </small>
         {%- if section.settings.show_policy -%}
           <small>
-            <ul class="flex flex-wrap items-center justify-center lg:justify-start">
+            <ul class="flex flex-wrap justify-center lg:justify-start">
               {%- for policy in shop.policies -%}
                 {%- if policy != blank -%}
                   <li>
                     <small class="pt-4 text-xs copyright__content">
+                      {%- if forloop.first == true -%}
+                        <span class="px-2 tw-hidden lg:inline">–</span>
+                      {%- else -%}
+                        <span class="px-2">–</span>
+                      {%- endif -%}
                       <a href="{{ policy.url }}">
-                        {%- if forloop.first == true -%}
-                          <span class="px-2 tw-hidden lg:inline">–</span>
-                        {%- else -%}
-                          <span class="px-2">–</span>
-                        {%- endif -%}
                         {{ policy.title -}}
                       </a>
                     </small>

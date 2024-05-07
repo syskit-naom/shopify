@@ -490,5 +490,18 @@
         <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
       {%- endif -%}
     </div>
+
+    <script>
+      // Add section index to each shopify section
+      document.addEventListener('DOMContentLoaded', function () {
+        // Get all sections or a specific type of section
+        var mainSections = document.querySelectorAll('main .shopify-section');
+
+        // Loop through all sections to find collection-list
+        mainSections.forEach(function (section, index) {
+          section.dataset.shopifySectionIndex = index;
+        });
+      });
+    </script>
   </body>
 </html>

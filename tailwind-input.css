@@ -56,10 +56,6 @@
     @apply text-lg;
   }
 
-  .product-form *[role="button"], .product-form button {
-    @apply xs:max-w-xs;
-  }
-
   .tw-grid {
     display: grid;
   }
@@ -84,6 +80,11 @@
   }
   .icon {
     @apply max-w-full max-h-full;
+  }
+
+  /* section gap */
+  #MainContent section:not(:first-child, :nth-child(2)) {
+    @apply mt-12;
   }
 
   /* contact form */
@@ -205,7 +206,9 @@
     @apply text-base tracking-tighter;
   }
 
-  /* product */
+  .product-form *[role="button"], .product-form button, .product-form__input {
+    @apply xs:max-w-xs;
+  }
   .product__description {
     @apply mt-16;
   }

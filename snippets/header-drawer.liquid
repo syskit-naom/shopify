@@ -5,6 +5,11 @@
   {% render 'header-drawer' %}
 {% endcomment %}
 
+{% liquid
+  assign menu = linklists['main-menu']
+  assign color_scheme = color_schemes['scheme-1']
+%}
+
 <header-drawer
   class="m-0"
   data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}"
@@ -21,13 +26,13 @@
     </summary>
     <div
       id="menu-drawer"
-      class="max-w-screen-sm sm:w-fit gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}"
+      class="max-w-screen-sm sm:w-fit gradient menu-drawer motion-reduce color-{{ color_scheme }}"
     >
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
-              {%- for link in section.settings.menu.links -%}
+              {%- for link in menu.links -%}
                 <li class="m-0">
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">

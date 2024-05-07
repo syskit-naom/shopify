@@ -145,11 +145,13 @@
       assign has_app_block = true
     endif
   endfor
+
+  assign color_scheme = settings.color_schemes['scheme-1']
 -%}
 
 <sticky-header
   data-sticky-type="on-scroll-up"
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient header-wrapper--border-bottom flex items-end lg:items-center py-5 lg:py-0 min-h-[var(--tw-header-height)]"
+  class="header-wrapper color-{{ color_scheme }} gradient header-wrapper--border-bottom flex items-end lg:items-center py-5 lg:py-0 min-h-[var(--tw-header-height)]"
 >
   {%- liquid
     assign social_links = false
@@ -166,9 +168,7 @@
 
   <header class="tw-grid grid-cols-3 lg:grid-cols-[1fr,50px,50px] w-full gap-x-4 items-center page-width">
     {%- liquid
-      if section.settings.menu != blank
-        render 'header-drawer'
-      endif
+      render 'header-drawer'
     -%}
 
     {%- liquid
@@ -248,10 +248,7 @@
 </sticky-header>
 
 {%- if settings.cart_type == 'notification' -%}
-  {%- render 'cart-notification',
-    color_scheme: section.settings.color_scheme,
-    desktop_menu_type: section.settings.menu_type_desktop
-  -%}
+  {%- render 'cart-notification', color_scheme: color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
 {%- endif -%}
 
 {% javascript %}
@@ -413,29 +410,14 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
   "settings": [
     {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
+      "type": "paragraph",
+      "content": "Fixed setting (read only): menu (main menu)"
     },
     {
-      "type": "header",
-      "content": "t:sections.header.settings.header__1.content"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "color_scheme",
-      "id": "menu_color_scheme",
-      "label": "t:sections.header.settings.menu_color_scheme.label",
-      "default": "scheme-1"
+      "type": "paragraph",
+      "content": "Fixed setting (read only): Color scheme (scheme 1)"
     },
     {
       "type": "header",
@@ -445,7 +427,7 @@
     {
       "type": "checkbox",
       "id": "enable_country_selector",
-      "default": false,
+      "default": true,
       "label": "t:sections.header.settings.enable_country_selector.label"
     },
     {
@@ -456,13 +438,8 @@
     {
       "type": "checkbox",
       "id": "enable_language_selector",
-      "default": false,
+      "default": true,
       "label": "t:sections.header.settings.enable_language_selector.label"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "@app"
     }
   ]
 }

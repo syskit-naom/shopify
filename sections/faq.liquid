@@ -1,10 +1,10 @@
 {% comment %} TODO: introduce pagination {% endcomment %}
 <div class="faq-content page-width">
-  <h1>{{ page.title }}</h1>
+  <h1 class="pb-2 mb-8 border-b lg:mb-10 border-black/10">{{ page.title }}</h1>
 
-  <div class="flex flex-col pt-4 gap-y-2 text-alternative-copy">
+  <div class="flex flex-col gap-y-2 text-alternative-copy">
     {%- for cat in shop.metaobjects.faq_category.values -%}
-      <div class="flex flex-col pt-4 gap-y-2">
+      <div class="flex flex-col gap-y-2">
         <h2 class="text-base">{{ cat.title }}</h2>
         {%- for item in shop.metaobjects.faq_item.values -%}
           {% if item.question != blank and item.answer != blank %}
