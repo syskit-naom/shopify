@@ -9,11 +9,11 @@
     --gray: 129 129 129;
     --gray-light: 200 200 200;
 
-    --primary-copy: var(--black);
+    --primary-copy: var(--almost-black);
     --secondary-copy: var(--gray);
     --alternative-copy: var(--white);
     --primary-bg: var(--white);
-    --alternative-bg: var(--black);
+    --alternative-bg: var(--almost-black);
 
     --font-gotham: 'Gotham';
     --font-schabo: 'SCHABO';
@@ -56,7 +56,7 @@
     @apply text-lg;
   }
 
-  button, *[role="button"] {
+  .product-form *[role="button"], .product-form button {
     @apply xs:max-w-xs;
   }
 
@@ -117,7 +117,7 @@
   
   /* button */
   button, .button, .shopify-payment-button, .shopify-payment-button__button {
-    @apply text-base min-h-[unset] h-10 xs:max-w-xs py-0;
+    @apply text-base min-h-[unset] h-10 py-0;
   }
 
   /* select input */
@@ -177,17 +177,20 @@
   .cart__ctas {
     @apply md:justify-end;
   }
+  .cart__ctas > button {
+    @apply min-w-[unset] max-w-xs;
+  }
   .product-form__error-message, .cart-item__error *, .error-message {
     @apply my-auto text-sm;
   }
-  .cart__dynamic-checkout-buttons, .product-form__buttons {
+  .cart__dynamic-checkout-buttons {
     @apply xs:max-w-xs;
   }
   .cart__dynamic-checkout-buttons {
     @apply md:mr-0;
   }
   .product-form__buttons > button, .cart__checkout-button button {
-    @apply min-h-[unset] h-10 w-full xs:max-w-xs;
+    @apply min-h-[unset] h-10 w-full;
   }
   .cart-item__details * {
     @apply text-sm sm:text-base;
@@ -196,7 +199,7 @@
     @apply mt-4 text-sm text-left;
   }
   .product-form__input * {
-    @apply text-sm xs:max-w-xs;
+    @apply text-sm;
   }
   .price, .price-item {
     @apply text-base tracking-tighter;
