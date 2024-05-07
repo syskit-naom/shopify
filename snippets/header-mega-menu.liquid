@@ -5,10 +5,11 @@
   {% render 'header-mega-menu' %}
 {% endcomment %}
 
-<nav class="header__inline-menu">
-  <ul class="flex" role="list">
+{% comment %} TODO: style nested links {% endcomment %}
+<nav class="flex-1 text-sm tw-hidden lg:block">
+  <ul class="flex gap-x-3" role="list">
     {%- for link in section.settings.menu.links -%}
-      <li class="flex items-center">
+      <li class="flex items-center gap-x-3 whitespace-nowrap">
         {%- if link.links != blank -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
@@ -53,7 +54,7 @@
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                 href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                class="text-sm p-0 mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
                                 {% if grandchildlink.current %}
                                   aria-current="page"
                                 {% endif %}
@@ -74,7 +75,7 @@
           <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
-            class="header__menu-item list-menu__item link link--text focus-inset"
+            class="p-0 text-sm header__menu-item list-menu__item link link--text focus-inset"
             {% if link.current %}
               aria-current="page"
             {% endif %}

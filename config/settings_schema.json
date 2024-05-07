@@ -1,11 +1,32 @@
 [
   {
+    "name": "Fixed theme settings (read only)",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Primary font: Gotham (sans-serif)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Secondary font: SCHABO (sans-serif)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Page width: 1440px"
+      },
+      {
+        "type": "paragraph",
+        "content": "General corner radius: 0px"
+      }
+    ]
+  },
+  {
     "name": "theme_info",
     "theme_name": "Spotlight",
     "theme_version": "13.0.1",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
     "name": "t:settings_schema.logo.name",
@@ -102,65 +123,8 @@
     ]
   },
   {
-    "name": "t:settings_schema.typography.name",
-    "settings": [
-      {
-        "type": "header",
-        "content": "t:settings_schema.typography.settings.header__1.content"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_header_font",
-        "default": "assistant_n4",
-        "label": "t:settings_schema.typography.settings.type_header_font.label",
-        "info": "t:settings_schema.typography.settings.type_header_font.info"
-      },
-      {
-        "type": "range",
-        "id": "heading_scale",
-        "min": 100,
-        "max": 150,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings_schema.typography.settings.heading_scale.label",
-        "default": 100
-      },
-      {
-        "type": "header",
-        "content": "t:settings_schema.typography.settings.header__2.content"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_body_font",
-        "default": "assistant_n4",
-        "label": "t:settings_schema.typography.settings.type_body_font.label",
-        "info": "t:settings_schema.typography.settings.type_body_font.info"
-      },
-      {
-        "type": "range",
-        "id": "body_scale",
-        "min": 100,
-        "max": 130,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings_schema.typography.settings.body_scale.label",
-        "default": 100
-      }
-    ]
-  },
-  {
     "name": "t:settings_schema.layout.name",
     "settings": [
-      {
-        "type": "range",
-        "id": "page_width",
-        "min": 1000,
-        "max": 1600,
-        "step": 100,
-        "default": 1200,
-        "unit": "px",
-        "label": "t:settings_schema.layout.settings.page_width.label"
-      },
       {
         "type": "range",
         "id": "spacing_sections",

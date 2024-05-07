@@ -124,17 +124,17 @@
 
 {% comment %} search icon {% endcomment %}
 <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
-  <symbol id="icon-search" viewbox="0 0 18 19" fill="none">
+  <symbol id="icon-search" viewbox="0 0 18 19" fill="none" stroke-width="1">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z" fill="currentColor"/>
   </symbol>
 
-  <symbol id="icon-reset" class="icon icon-close"  fill="none" viewBox="0 0 18 18" stroke="currentColor">
+  <symbol id="icon-reset" class="icon icon-close"  fill="none" viewBox="0 0 19 18" stroke="currentColor" stroke-width="1">
     <circle r="8.5" cy="9" cx="9" stroke-opacity="0.2"/>
     <path d="M6.82972 6.82915L1.17193 1.17097" stroke-linecap="round" stroke-linejoin="round" transform="translate(5 5)"/>
     <path d="M1.22896 6.88502L6.77288 1.11523" stroke-linecap="round" stroke-linejoin="round" transform="translate(5 5)"/>
   </symbol>
 
-  <symbol id="icon-close" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+  <symbol id="icon-close" class="icon icon-close" fill="none" viewBox="0 0 18 17" stroke-width="1">
     <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
   </symbol>
 </svg>
@@ -149,7 +149,7 @@
 
 <sticky-header
   data-sticky-type="on-scroll-up"
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient header-wrapper--border-bottom"
+  class="header-wrapper color-{{ section.settings.color_scheme }} gradient header-wrapper--border-bottom flex items-end lg:items-center py-5 lg:py-0 min-h-[var(--tw-header-height)]"
 >
   {%- liquid
     assign social_links = false
@@ -164,18 +164,16 @@
     endif
   -%}
 
-  <header class="lg:flex lg:gap-x-12 grid-auto-flow grid-cols-[1fr,0%,1fr,1fr] page-width min-h-[48px] pt-14 lg:pt-0">
+  <header class="tw-grid grid-cols-3 lg:grid-cols-[1fr,50px,50px] w-full gap-x-4 items-center page-width">
     {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
       endif
     -%}
 
-    <div class="items-center flex-none w-0 lg:w-fit lg:flex lg:flex-1">
-      {%- liquid
-        render 'header-mega-menu'
-      %}
-    </div>
+    {%- liquid
+      render 'header-mega-menu'
+    %}
 
     <div class="flex items-center justify-center flex-1 lg:flex-none lg:order-2">
       {{
@@ -193,7 +191,7 @@
       }}
     </div>
 
-    <div class="relative flex items-center justify-end">
+    <div class="relative flex items-center justify-end gap-x-4">
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
@@ -223,7 +221,11 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+      <a
+        href="{{ routes.cart_url }}"
+        class="w-5 h-5 m-0 header__icon header__icon--cart link focus-inset"
+        id="cart-icon-bubble"
+      >
         {%- liquid
           if cart == empty
             render 'icon-cart-empty'
