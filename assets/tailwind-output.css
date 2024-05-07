@@ -897,6 +897,10 @@ video {
   background-color: rgb(var(--primary-bg) / 1);
 }
 
+#tw-wrapper :is(.bg-\[var\(--color-button\)\]) {
+  background-color: var(--color-button);
+}
+
 #tw-wrapper :is(.p-0) {
   padding: 0px;
 }

@@ -2,9 +2,6 @@
   "current": {
     "logo": "shopify:\/\/shop_images\/NAOM.svg",
     "logo_width": 50,
-    "heading_scale": 100,
-    "body_scale": 100,
-    "page_width": 1600,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 16,
     "spacing_grid_vertical": 16,
@@ -116,6 +113,9 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
+    "heading_scale": 100,
+    "body_scale": 100,
+    "page_width": 1600,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -139,8 +139,8 @@
           "background": "#ffffff",
           "background_gradient": "",
           "text": "#010101",
-          "button": "#f3f3f3",
-          "button_label": "#010101",
+          "button": "#010101",
+          "button_label": "#fff",
           "secondary_button_label": "#010101",
           "shadow": "#010101"
         }
