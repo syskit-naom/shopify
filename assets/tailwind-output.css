@@ -1119,7 +1119,13 @@ video {
   max-width: 100%;
 }
 
-/* form field */
+/* contact form */
+
+#tw-wrapper  :is(form#ContactForm) {
+  max-width: 750px;
+}
+
+/* input */
 
 #tw-wrapper  :is(.field__label),:is(
   #tw-wrapper :is(.customer .field label)) {
@@ -1161,6 +1167,38 @@ video {
   font-size: 0.75rem;
   line-height: 120%;
   line-height: 2rem;
+}
+
+/* button */
+
+#tw-wrapper  :is(button),:is( #tw-wrapper :is(.button)),:is( #tw-wrapper :is(.shopify-payment-button)),:is( #tw-wrapper :is(.shopify-payment-button__button)) {
+  height: 2.5rem;
+  min-height: unset;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 1rem;
+  line-height: 120%;
+}
+
+@media (min-width: 480px) {
+  #tw-wrapper  :is(button),:is( #tw-wrapper :is(.button)),:is( #tw-wrapper :is(.shopify-payment-button)),:is( #tw-wrapper :is(.shopify-payment-button__button)) {
+    max-width: 20rem;
+  }
+}
+
+#tw-wrapper  :is(button),:is( #tw-wrapper :is(.button)),:is( #tw-wrapper :is(.shopify-payment-button)),:is( #tw-wrapper :is(.shopify-payment-button__button)) {
+  height: 2.5rem;
+  min-height: unset;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 1rem;
+  line-height: 120%;
+}
+
+@media (min-width: 480px) {
+  #tw-wrapper  :is(button),:is( #tw-wrapper :is(.button)),:is( #tw-wrapper :is(.shopify-payment-button)),:is( #tw-wrapper :is(.shopify-payment-button__button)) {
+    max-width: 20rem;
+  }
 }
 
 /* select input */
@@ -1292,11 +1330,6 @@ video {
   }
 }
 
-#tw-wrapper  :is(button),:is( #tw-wrapper :is(.button)) {
-  height: 2.5rem;
-  min-height: unset;
-}
-
 #tw-wrapper  :is(.product-form__buttons > button),:is( #tw-wrapper :is(.cart__checkout-button button)) {
   height: 2.5rem;
   min-height: unset;
@@ -1358,6 +1391,10 @@ video {
 }
 
 /* product */
+
+#tw-wrapper  :is(.product__description) {
+  margin-top: 4rem;
+}
 
 #tw-wrapper  :is(.price),:is( #tw-wrapper :is(.price--large)),:is( #tw-wrapper :is(.price--regular)) {
   display: flex;

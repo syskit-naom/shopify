@@ -86,7 +86,12 @@
     @apply max-w-full max-h-full;
   }
 
-  /* form field */
+  /* contact form */
+  form#ContactForm {
+    @apply max-w-screen-md;
+  }
+
+  /* input */
   .field__label,
   .customer .field label {
     @apply text-base leading-10 text-black;
@@ -108,6 +113,11 @@
     top: calc(var(--inputs-border-width) - 0.5rem);
     left: calc(var(--inputs-border-width) + 2rem);
     @apply text-sm leading-8;
+  }
+  
+  /* button */
+  button, .button, .shopify-payment-button, .shopify-payment-button__button {
+    @apply text-base min-h-[unset] h-10 xs:max-w-xs py-0;
   }
 
   /* select input */
@@ -176,9 +186,6 @@
   .cart__dynamic-checkout-buttons {
     @apply md:mr-0;
   }
-  button, .button {
-    @apply min-h-[unset] h-10
-  }
   .product-form__buttons > button, .cart__checkout-button button {
     @apply min-h-[unset] h-10 w-full xs:max-w-xs;
   }
@@ -196,6 +203,9 @@
   }
 
   /* product */
+  .product__description {
+    @apply mt-16;
+  }
   .price, .price--large, .price--regular {
     @apply flex items-center gap-x-4;
   }
