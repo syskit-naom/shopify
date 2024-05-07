@@ -76,7 +76,7 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  <h2 class="text-base footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -123,7 +123,7 @@
                         </div>
                       {%- endif -%}
                       {%- if settings.brand_headline != blank -%}
-                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
+                        <h2 class="text-base footer-block__heading rte">{{ settings.brand_headline }}</h2>
                       {%- endif -%}
                       {%- if settings.brand_description != blank -%}
                         <div class="rte">{{ settings.brand_description }}</div>
@@ -167,7 +167,7 @@
         >
           {%- if section.settings.newsletter_enable -%}
             <div class="footer-block__newsletter page-width">
-              <h2 class="footer-block__heading inline-richtext">
+              <h2 class="text-base footer-block__heading inline-richtext">
                 {{ 'newsletter.signup_form.heading' | t }}
               </h2>
               {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
@@ -178,7 +178,7 @@
                       id="NewsletterForm--{{ section.id }}"
                       type="email"
                       name="contact[email]"
-                      class="field__input"
+                      class="field__input "
                       value="{{ form.email }}"
                       aria-required="true"
                       autocorrect="off"
