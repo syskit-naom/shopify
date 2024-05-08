@@ -134,7 +134,6 @@ if (!customElements.get('localization-form')) {
         this.elements.input.value = lang
         if (form) {
           if(this.areCookiesEnabled()) {
-            console.log('setting cookie to', lang)
             this.setLanguageCookie(lang);
           }
           form.submit();

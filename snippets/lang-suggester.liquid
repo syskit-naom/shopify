@@ -18,7 +18,7 @@
 </div>
 
 <script>
-  let scrollHandledCount = 0
+  let scrollHandledCount = 0;
   const navigatorLang = (navigator.language || navigator.navigatorLanguage).substring(0, 2);
   const storageKey = 'naom-shop_preferred-lang';
   const userStoredPreferredLang = getLanguageFromCookie();
@@ -34,17 +34,6 @@
     ? navigatorLang
     : null;
 
-  {% comment %} console.log('navigatorLang', navigatorLang);
-  console.log('storageKey', storageKey);
-  console.log('userStoredPreferredLang', userStoredPreferredLang);
-  console.log('langPathPart', langPathPart);
-  console.log('websiteLang', websiteLang);
-  console.log('englishVersionURL', englishVersionURL);
-  console.log('swedishVersionURL', swedishVersionURL);
-  console.log('preferredMismatch', preferredMismatch);
-  console.log('navigatorMismatch', navigatorMismatch);
-  console.log('shouldRedirectLang', shouldRedirectLang); {% endcomment %}
-
   if (shouldRedirectLang && areCookiesEnabled()) {
     const container = document.querySelector('#lang-suggester');
     const closeBtn = container.querySelector('button');
@@ -52,7 +41,6 @@
     const linkSpan = container.querySelector('a span');
     const langAlias = shouldRedirectLang === 'sv' ? 'Swedish' : 'English';
     const url = constructNewUrl(shouldRedirectLang);
-    {% comment %} console.log('URL TO REDIRECT TO', url); {% endcomment %}
 
     linkSpan.innerText = langAlias;
     link.href = url;
@@ -98,18 +86,18 @@
     closeBtn.addEventListener('click', onClose);
     link.addEventListener('click', onNavigate);
 
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll);
 
     function onScroll() {
-      // is triggered before actually scrolling if page renders scrolled down 
+      // is triggered before actually scrolling if page renders scrolled down
       // therefore we check won't take action the first time
-      scrollHandledCount++
-      if(scrollHandledCount > 1) { 
-        window.removeEventListener('scroll', onScroll)
-        let timeout = setTimeout(function() {
+      scrollHandledCount++;
+      if (scrollHandledCount > 1) {
+        window.removeEventListener('scroll', onScroll);
+        let timeout = setTimeout(function () {
           const container = document.querySelector('#lang-suggester');
           container.remove();
-        }, 1000)
+        }, 1000);
       }
     }
   }
