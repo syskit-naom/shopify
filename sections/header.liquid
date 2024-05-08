@@ -332,7 +332,6 @@
     }
 
     hide() {
-      return;
       if (this.headerIsAlwaysSticky) return;
       this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
       this.closeMenuDisclosure();
@@ -340,7 +339,6 @@
     }
 
     reveal() {
-      return;
       if (this.headerIsAlwaysSticky) return;
       this.header.classList.add('shopify-section-header-sticky', 'animate');
       this.header.classList.remove('shopify-section-header-hidden');
