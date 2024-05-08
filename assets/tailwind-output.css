@@ -1200,6 +1200,15 @@ video {
   line-height: 2rem;
 }
 
+#tw-wrapper  :is(.field__input:focus),:is(
+  #tw-wrapper :is(.field__input:not(:placeholder-shown))),:is(
+  #tw-wrapper :is(.field__input:-webkit-autofill)),:is(
+  #tw-wrapper :is(.customer .field input:focus)),:is(
+  #tw-wrapper :is(.customer .field input:not(:placeholder-shown))),:is(
+  #tw-wrapper :is(.customer .field input:-webkit-autofill)) {
+  padding-top: 0.5rem;
+}
+
 /* button */
 
 #tw-wrapper  :is(button),:is( #tw-wrapper :is(.button)),:is( #tw-wrapper :is(.shopify-payment-button__button)) {
@@ -1265,7 +1274,7 @@ video {
 }
 
 #tw-wrapper  :is(form#ContactForm .field textarea) {
-  padding-top: 1rem;
+  padding-top: 0.75rem;
 }
 
 /* newsletter */
@@ -1332,6 +1341,19 @@ video {
   z-index: -1;
   height: 100vh;
   width: 100vw;
+}
+
+#tw-wrapper  :is(.header__search .search-modal__form),:is(
+  #tw-wrapper :is(.header__search .search-modal__form .search__input)),:is(
+  #tw-wrapper :is(.header__search .search-modal__form .search__button)),:is(
+  #tw-wrapper :is(.header__search .search-modal__form .reset__button)),:is(
+  #tw-wrapper :is(.header__search .search-modal__close-button)) {
+  max-height: 2.5rem;
+  min-height: unset;
+}
+
+#tw-wrapper  :is(.header__search .search-modal__form .search__input) {
+  margin: 0px;
 }
 
 /* cart */

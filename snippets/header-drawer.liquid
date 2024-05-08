@@ -137,7 +137,7 @@
               {%- endfor -%}
             </ul>
           </nav>
-          <div class="menu-drawer__utility-links page-width">
+          <div class="menu-drawer__utility-links page-width bg-alternative-bg text-alternative-copy">
             {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -236,7 +236,7 @@
                         <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
                           {{ 'localization.language_label' | t }}
                         </h2>
-                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile' -%}
+                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile', dark: true -%}
                       </div>
                     {%- endform -%}
                   </localization-form>

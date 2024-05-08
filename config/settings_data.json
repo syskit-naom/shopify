@@ -2,6 +2,7 @@
   "current": {
     "logo": "shopify:\/\/shop_images\/NAOM.svg",
     "logo_width": 50,
+    "favicon": "shopify:\/\/shop_images\/favicon-test-32x32.png",
     "spacing_sections": 0,
     "spacing_grid_horizontal": 16,
     "spacing_grid_vertical": 16,
@@ -140,7 +141,7 @@
           "background_gradient": "",
           "text": "#010101",
           "button": "#010101",
-          "button_label": "#fff",
+          "button_label": "#ffffff",
           "secondary_button_label": "#010101",
           "shadow": "#010101"
         }

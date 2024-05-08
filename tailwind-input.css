@@ -110,6 +110,15 @@
     left: calc(var(--inputs-border-width) + 2rem);
     @apply text-sm leading-8;
   }
+
+  .field__input:focus ,
+  .field__input:not(:placeholder-shown),
+  .field__input:-webkit-autofill,
+  .customer .field input:focus,
+  .customer .field input:not(:placeholder-shown),
+  .customer .field input:-webkit-autofill {
+    @apply pt-2
+  }
   
   /* button */
   button, .button, .shopify-payment-button__button {
@@ -149,7 +158,7 @@
     @apply h-10;
   }
   form#ContactForm .field textarea {
-    @apply pt-4;
+    @apply pt-3;
   }
 
   /* newsletter */
@@ -184,6 +193,16 @@
   }
   .header__icon--menu[aria-expanded='true']::before {
     @apply fixed z-[-1] left-0 top-0 w-screen h-screen;
+  }
+  .header__search .search-modal__form,
+  .header__search .search-modal__form .search__input,
+  .header__search .search-modal__form .search__button,
+  .header__search .search-modal__form .reset__button,
+  .header__search .search-modal__close-button {
+    @apply min-h-[unset] max-h-10;
+  }
+  .header__search .search-modal__form .search__input {
+    @apply m-0;
   }
   
   /* cart */
