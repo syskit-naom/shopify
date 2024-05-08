@@ -194,14 +194,14 @@
   .header__icon--menu[aria-expanded='true']::before {
     @apply fixed z-[-1] left-0 top-0 w-screen h-screen;
   }
-  .header__search .search-modal__form,
-  .header__search .search-modal__form .search__input,
-  .header__search .search-modal__form .search__button,
-  .header__search .search-modal__form .reset__button,
+  form.search,
+  form.search .search__input,
+  form.search .search__button,
+  form.search .reset__button,
   .header__search .search-modal__close-button {
     @apply min-h-[unset] max-h-10;
   }
-  .header__search .search-modal__form .search__input {
+  form.search .search__input {
     @apply m-0;
   }
   

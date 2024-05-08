@@ -1343,16 +1343,16 @@ video {
   width: 100vw;
 }
 
-#tw-wrapper  :is(.header__search .search-modal__form),:is(
-  #tw-wrapper :is(.header__search .search-modal__form .search__input)),:is(
-  #tw-wrapper :is(.header__search .search-modal__form .search__button)),:is(
-  #tw-wrapper :is(.header__search .search-modal__form .reset__button)),:is(
+#tw-wrapper  :is(form.search),:is(
+  #tw-wrapper :is(form.search .search__input)),:is(
+  #tw-wrapper :is(form.search .search__button)),:is(
+  #tw-wrapper :is(form.search .reset__button)),:is(
   #tw-wrapper :is(.header__search .search-modal__close-button)) {
   max-height: 2.5rem;
   min-height: unset;
 }
 
-#tw-wrapper  :is(.header__search .search-modal__form .search__input) {
+#tw-wrapper  :is(form.search .search__input) {
   margin: 0px;
 }
 
@@ -1578,6 +1578,10 @@ video {
   #tw-wrapper :is(.md\:pl-2) {
     padding-left: 0.5rem;
   }
+
+  #tw-wrapper :is(.md\:pl-5) {
+    padding-left: 1.25rem;
+  }
 }
 
 @media (min-width: 990px) {
@@ -1632,6 +1636,10 @@ video {
 
   #tw-wrapper :is(.lg\:pt-\[var\(--page-pt-lg\)\]) {
     padding-top: var(--page-pt-lg);
+  }
+
+  #tw-wrapper :is(.lg\:pl-5) {
+    padding-left: 1.25rem;
   }
 }
 
