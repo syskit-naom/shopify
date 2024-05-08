@@ -76,7 +76,7 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  <h2 class="text-base footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -123,7 +123,7 @@
                         </div>
                       {%- endif -%}
                       {%- if settings.brand_headline != blank -%}
-                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
+                        <h2 class="text-base footer-block__heading rte">{{ settings.brand_headline }}</h2>
                       {%- endif -%}
                       {%- if settings.brand_description != blank -%}
                         <div class="rte">{{ settings.brand_description }}</div>
@@ -167,7 +167,7 @@
         >
           {%- if section.settings.newsletter_enable -%}
             <div class="footer-block__newsletter page-width">
-              <h2 class="footer-block__heading inline-richtext">
+              <h2 class="text-base footer-block__heading inline-richtext">
                 {{ 'newsletter.signup_form.heading' | t }}
               </h2>
               {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
@@ -178,7 +178,7 @@
                       id="NewsletterForm--{{ section.id }}"
                       type="email"
                       name="contact[email]"
-                      class="field__input"
+                      class="field__input "
                       value="{{ form.email }}"
                       aria-required="true"
                       autocorrect="off"
@@ -351,24 +351,24 @@
 
     <div class="pb-8 uppercase page-width">
       <div class="footer__copyright caption lg:flex lg:flex-wrap">
-        <small class="text-xs lg:pt-2 copyright__content"
+        <small class="text-xs lg:flex lg:items-center lg:pt-0 copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}
           <span class="">All rights reserved,</span> {{ shop.name | link_to: routes.root_url }}
           {{ powered_by_link -}}
         </small>
         {%- if section.settings.show_policy -%}
           <small>
-            <ul class="flex flex-wrap items-center justify-center lg:justify-start">
+            <ul class="flex flex-wrap justify-center lg:justify-start">
               {%- for policy in shop.policies -%}
                 {%- if policy != blank -%}
                   <li>
                     <small class="pt-4 text-xs copyright__content">
+                      {%- if forloop.first == true -%}
+                        <span class="px-2 tw-hidden lg:inline">–</span>
+                      {%- else -%}
+                        <span class="px-2">–</span>
+                      {%- endif -%}
                       <a href="{{ policy.url }}">
-                        {%- if forloop.first == true -%}
-                          <span class="px-2 tw-hidden lg:inline">–</span>
-                        {%- else -%}
-                          <span class="px-2">–</span>
-                        {%- endif -%}
                         {{ policy.title -}}
                       </a>
                     </small>

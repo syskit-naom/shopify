@@ -5,10 +5,15 @@
   {% render 'header-mega-menu' %}
 {% endcomment %}
 
+{% liquid
+  assign menu = linklists['main-menu']
+  assign color_scheme = color_schemes['scheme-1']
+%}
+
 {% comment %} TODO: style nested links {% endcomment %}
 <nav class="flex-1 text-sm tw-hidden lg:block">
   <ul class="flex gap-x-3" role="list">
-    {%- for link in section.settings.menu.links -%}
+    {%- for link in menu.links -%}
       <li class="flex items-center gap-x-3 whitespace-nowrap">
         {%- if link.links != blank -%}
           <header-menu>
@@ -28,7 +33,7 @@
               </summary>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
-                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                class="mega-menu__content color-{{ color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
                 <ul

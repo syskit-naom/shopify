@@ -3,12 +3,13 @@
 
   Accepts:
     - localPosition: pass in the position in which the form is coming up to create specific IDs
+    - dark (optional): pass in a boolean to determine if the icon should be dark or light
 {%- endcomment -%}
 
 <div class="disclosure">
   <button
     type="button"
-    class="disclosure__button localization-form__select localization-selector link link--text caption-large"
+    class="disclosure__button localization-form__select localization-selector link link--text caption-large {% if dark == true %}text-alternative-copy{%- endif -%}"
     aria-expanded="false"
     aria-controls="{{ localPosition }}List"
     aria-describedby="{{ localPosition }}Label"

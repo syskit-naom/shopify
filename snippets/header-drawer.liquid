@@ -5,13 +5,18 @@
   {% render 'header-drawer' %}
 {% endcomment %}
 
+{% liquid
+  assign menu = linklists['main-menu']
+  assign color_scheme = color_schemes['scheme-1']
+%}
+
 <header-drawer
   class="m-0"
   data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}"
 >
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
     <summary
-      class="relative w-4 h-4 header__icon header__icon--menu header__icon--summary link focus-inset"
+      class="relative w-5 h-5 header__icon header__icon--menu header__icon--summary link focus-inset"
       aria-label="{{ 'sections.header.menu' | t }}"
     >
       <span>
@@ -21,13 +26,13 @@
     </summary>
     <div
       id="menu-drawer"
-      class="max-w-screen-sm sm:w-fit gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}"
+      class="max-w-screen-sm sm:w-fit gradient menu-drawer motion-reduce color-{{ color_scheme }}"
     >
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
-              {%- for link in section.settings.menu.links -%}
+              {%- for link in menu.links -%}
                 <li class="m-0">
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
@@ -132,7 +137,7 @@
               {%- endfor -%}
             </ul>
           </nav>
-          <div class="menu-drawer__utility-links page-width">
+          <div class="menu-drawer__utility-links page-width bg-alternative-bg text-alternative-copy">
             {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -231,7 +236,7 @@
                         <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
                           {{ 'localization.language_label' | t }}
                         </h2>
-                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile' -%}
+                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile', dark: true -%}
                       </div>
                     {%- endform -%}
                   </localization-form>

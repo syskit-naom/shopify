@@ -25,8 +25,8 @@
     "theme_name": "Spotlight",
     "theme_version": "13.0.1",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
     "name": "t:settings_schema.logo.name",
@@ -54,7 +54,6 @@
       }
     ]
   },
-  
   {
     "name": "t:settings_schema.colors.name",
     "settings": [

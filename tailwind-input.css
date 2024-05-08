@@ -9,11 +9,11 @@
     --gray: 129 129 129;
     --gray-light: 200 200 200;
 
-    --primary-copy: var(--black);
+    --primary-copy: var(--almost-black);
     --secondary-copy: var(--gray);
     --alternative-copy: var(--white);
     --primary-bg: var(--white);
-    --alternative-bg: var(--black);
+    --alternative-bg: var(--almost-black);
 
     --font-gotham: 'Gotham';
     --font-schabo: 'SCHABO';
@@ -68,19 +68,114 @@
     @apply max-w-screen-xl px-3 mx-0 xl:mx-auto lg:px-5;
   }
 
+  /* card grid */
+  .grid.contains-card {
+    @apply grid-cols-1 gap-y-8 tw-grid xs:grid-cols-2 lg:flex;
+  }
+  .card__heading {
+    @apply text-lg;
+  }
+  .card__information {
+    @apply py-3;
+  }
   .icon {
     @apply max-w-full max-h-full;
   }
-  
-   /* Fixed layout for the Header Search Module */
-   .header__search > details[open='true'] {
-    @apply fixed top-0 left-0 z-10 w-screen;
+
+  /* section gap */
+  #MainContent section:not(:first-child, :nth-child(2)) {
+    @apply mt-12;
+  }
+
+  /* input */
+  .field__label,
+  .customer .field label {
+    @apply text-base leading-10 text-black;
+  }
+  .field__input, .customer .field input {
+    @apply py-0 min-h-10;
+  }
+  .field__label,
+  .customer .field label {
+    @apply top-0;
+  }
+  .field__input:focus~.field__label,
+  .field__input:not(:placeholder-shown)~.field__label,
+  .field__input:-webkit-autofill~.field__label,
+  .customer .field input:focus~label,
+  .customer .field input:not(:placeholder-shown)~label,
+  .customer .field input:-webkit-autofill~label {
+    font-size: 0.8rem;
+    top: calc(var(--inputs-border-width) - 0.5rem);
+    left: calc(var(--inputs-border-width) + 2rem);
+    @apply text-sm leading-8;
+  }
+
+  .field__input:focus ,
+  .field__input:not(:placeholder-shown),
+  .field__input:-webkit-autofill,
+  .customer .field input:focus,
+  .customer .field input:not(:placeholder-shown),
+  .customer .field input:-webkit-autofill {
+    @apply pt-2
   }
   
+  /* button */
+  button, .button, .shopify-payment-button__button {
+    @apply py-0 text-base min-h-10 min-w-[unset];
+  }
+  button, .button {
+    @apply py-2;
+  }
+
+  /* select input */
+  .disclosure__button.localization-form__select {
+    padding: calc(2rem + var(--inputs-border-width));
+    @apply h-10 py-0 text-base;
+  }
+  .select__select, .product-form__submit {
+    @apply h-10;
+  }
+  .disclosure__button.localization-form__select span {
+    @apply pr-6 text-base;
+  }
+  .disclosure .localization-form__select,
+  .disclosure__link, .link .customer a {
+    @apply text-base;
+  }
+  .product-form__submit {
+    @apply text-white bg-black;
+  }
+
+   /* contact form */
+   form#ContactForm {
+    @apply max-w-screen-md;
+  }
+  form#ContactForm .field {
+    @apply h-fit;
+  }
+  form#ContactForm .field input {
+    @apply h-10;
+  }
+  form#ContactForm .field textarea {
+    @apply pt-3;
+  }
+
+  /* newsletter */
+  .newsletter-form__field-wrapper {
+    @apply mx-auto xs:max-w-xs;
+  }
+  .newsletter-form__field-wrapper input {
+    @apply h-10 py-0;
+  }
+  
+  /* fixed layout for the Header Search Module */
+  .header__search > details[open='true'] {
+    @apply fixed top-0 left-0 z-10 w-screen;
+  }
   .header__search > details[open='true'] > summary {
     @apply tw-hidden;
   }
-  
   .header__search > details > .search-modal {
     @apply relative;
   }
@@ -96,15 +191,63 @@
   .header__search > details > .search-modal input[type="search"] {
     @apply border-none;
   }
-  
   .header__icon--menu[aria-expanded='true']::before {
     @apply fixed z-[-1] left-0 top-0 w-screen h-screen;
   }
+  form.search,
+  form.search .search__input,
+  form.search .search__button,
+  form.search .reset__button,
+  .header__search .search-modal__close-button {
+    @apply min-h-[unset] max-h-10;
+  }
+  form.search .search__input {
+    @apply m-0;
+  }
   
+  /* cart */
+  .cart__ctas {
+    @apply md:justify-end;
+  }
+  .cart__ctas > button {
+    @apply min-w-[unset] xs:max-w-xs;
+  }
+  .product-form__error-message, .cart-item__error *, .error-message {
+    @apply my-auto text-sm;
+  }
+  .cart__dynamic-checkout-buttons {
+    @apply xs:max-w-xs;
+  }
+  .cart__dynamic-checkout-buttons {
+    @apply md:mr-0;
+  }
+  .product-form__buttons > button, .cart__checkout-button {
+    @apply w-full py-2 min-h-10 bg-alternative-bg text-alternative-copy;
+  }
+  .cart-item__details * {
+    @apply text-sm sm:text-base;
+  }
+  .cart-item__totals .price--end {
+    @apply justify-end;
+  }
+  .product-form__buttons .shopify-payment-button__more-options {
+    @apply mt-4 text-sm text-left;
+  }
+  .product-form__input * {
+    @apply text-sm;
+  }
   .price, .price-item {
     @apply text-base tracking-tighter;
   }
-
+  .product-form *[role="button"], .product-form button, .product-form__input {
+    @apply xs:max-w-xs;
+  }
+  .product__description {
+    @apply mt-16;
+  }
+  .price, .price--large, .price--regular {
+    @apply flex items-center gap-x-4;
+  }
   .price__regular .price-item::before,
   .price__sale .price-item--sale::before,
   .cart-item__details .price::before {
@@ -114,51 +257,36 @@
   .price__sale .price-item--sale::before {
     @apply text-[1.25rem] -mt-[0.1rem] pr-[0.2rem];
   }
-
   .card__heading .icon-wrap {
     @apply inline-block;
   }
-  
   .cart-count-bubble {
-    @apply absolute w-4 h-4 text-xs top-3 left-2 bg-[rgb(243,243,243)]; 
+    @apply absolute w-4 h-4 text-xs top-3 left-2 bg-[rgb(243,243,243)] text-primary-copy; 
   }
-
   .cart-notification-wrapper * {
     @apply text-base;
   }
-
-  .product-form__error-message, .cart-item__error *, .error-message {
-    @apply my-auto text-sm;
+  quantity-input.quantity, quantity-input.quantity > * {
+    @apply text-base flex-1 min-w-[unset] h-10 min-h-[unset] w-full;
+    font-weight: normal;
+  }
+  .price-per-item__container,quantity-input.quantity {
+    @apply relative max-w-32;
+  }
+  quantity-input.quantity .icon {
+    @apply w-2 h-2;
   }
 
-  .grid.contains-card {
-    @apply grid-cols-1 gap-y-8 tw-grid xs:grid-cols-2 lg:flex;
-  }
-
-  .card__heading {
-    @apply text-lg;
-  }
-
-  .card__information {
-    @apply py-3;
-  }
-
-  .cart-item__details * {
-    @apply text-sm sm:text-base;
-  }
-
+  /* faq */
   .faq-item .reveal-answer ~ .faq-answer {
     @apply tw-hidden;
   }
-  
   .faq-item .reveal-answer:checked ~ .faq-answer {
     @apply block;
   }
-  
   .faq-item .reveal-answer:checked ~ label .expand-icon-vertical-line {
     @apply rotate-90 translate-y-1;
   }
-
   .faq-item a {
     @apply underline;
   }

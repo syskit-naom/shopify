@@ -14,8 +14,16 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign page_path = request.path | split: '/' | last
+  assign padding_top_class = ''
+  if page_path == 'contact'
+    assign padding_top_class = 'pt-0'
+  endif
+-%}
+
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding {{ padding_top_class }}">
     {%- if section.settings.heading != blank -%}
       <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}
@@ -114,7 +122,7 @@
         <textarea
           rows="10"
           id="ContactForm-body"
-          class="text-area field__input"
+          class="h-auto pt-4 text-area field__input"
           name="contact[{{ 'templates.contact.form.comment' | t }}]"
           placeholder="{{ 'templates.contact.form.comment' | t }}"
         >
@@ -125,7 +133,7 @@
         </label>
       </div>
       <div class="contact__button">
-        <button type="submit" class="button">
+        <button type="submit" class="bg-alternative-bg text-alternative-copy button">
           {{ 'templates.contact.form.send' | t }}
         </button>
       </div>

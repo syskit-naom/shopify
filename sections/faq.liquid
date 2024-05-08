@@ -1,16 +1,16 @@
 {% comment %} TODO: introduce pagination {% endcomment %}
 <div class="faq-content page-width">
-  <h1>{{ page.title }}</h1>
+  <h1 class="pb-2 mb-8 border-b lg:mb-10 border-black/10">{{ page.title }}</h1>
 
-  <div class="flex flex-col pt-4 gap-y-2">
+  <div class="flex flex-col gap-y-2 text-alternative-copy">
     {%- for cat in shop.metaobjects.faq_category.values -%}
-      <div class="flex flex-col pt-4 gap-y-2">
+      <div class="flex flex-col gap-y-2">
         <h2 class="text-base">{{ cat.title }}</h2>
         {%- for item in shop.metaobjects.faq_item.values -%}
           {% if item.question != blank and item.answer != blank %}
             {% for item_cat in item.category.value %}
               {% if item_cat == cat %}
-                <div class="relative bg-black/10 faq-item">
+                <div class="relative bg-alternative-bg faq-item">
                   <input
                     id="faq-item-{{ cat.title }}-{{ forloop.index }}"
                     type="checkbox"
@@ -22,7 +22,7 @@
                   >
                     <div class="flex flex-col">
                       <p>{{- item.question -}}</p>
-                      <p class="mt-[2px] pt-[2px] text-xs uppercase border-t border-black w-fit">
+                      <p class="mt-[2px] pt-[2px] text-xs uppercase w-fit">
                         {% for item_cat in item.category.value %}
                           {%- if forloop.first -%}
                             {{ 'faq.categories' | t }}:{{ ' ' }}
@@ -33,16 +33,16 @@
                       </p>
                     </div>
                     <div class="relative flex items-center justify-center w-[17px] h-[17px]">
-                      <div class="absolute block w-full h-[1px] bg-black"></div>
+                      <div class="absolute block w-full h-[1px] bg-primary-bg"></div>
                       <div
-                        class="absolute block w-[1px] h-full duration-150 bg-black expand-icon-vertical-line"
+                        class="absolute block w-[1px] h-full duration-150 bg-primary-bg expand-icon-vertical-line"
                       ></div>
                     </div>
                   </label>
 
                   <label
                     for="faq-item-{{ cat.title }}-{{ forloop.index }}"
-                    class="block p-4 pt-4 text-base border-t faq-answer border-black/10"
+                    class="block p-4 pt-4 text-base border-t bg-alternative-bg faq-answer border-white/10"
                   >
                     {{- item.answer | metafield_tag -}}
                   </label>
