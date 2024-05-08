@@ -1220,7 +1220,7 @@ video {
 
 #tw-wrapper :is(.disclosure__button.localization-form__select) {
   padding: calc(2rem + var(--inputs-border-width));
-  min-height: 2.5rem;
+  height: 2.5rem;
   padding-top: 0px;
   padding-bottom: 0px;
   font-size: 1rem;

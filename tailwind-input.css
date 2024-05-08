@@ -122,7 +122,7 @@
   /* select input */
   .disclosure__button.localization-form__select {
     padding: calc(2rem + var(--inputs-border-width));
-    @apply py-0 text-base min-h-10;
+    @apply h-10 py-0 text-base;
   }
   .select__select, .product-form__submit {
     @apply h-10;
